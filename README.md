@@ -1,38 +1,25 @@
-# create-svelte
+# WordAlchemy
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+![Logo](src/lib/assets/wordalchemy.svg)
 
-## Creating a project
+**WordAlchemy** is a simple sveltkit app that can be used to learn, pronounce and look up for a new words.
+It is a Dictionary app which mixed IPA (_International Phonetic Alphabet_) and word list.
 
-If you're seeing this, you've probably already done this step. Congrats!
+# Languages are available
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+| Language | Status |
+| -------- | ------ |
+| English  | SOON   |
+| Spanish  | SOON   |
+| French   | SOON   |
 
-# create a new project in my-app
-npm create svelte@latest my-app
-```
+# Note
 
-## Developing
+This Project meant for eductional purposes only.
+It is created under the passion and love of human language and also the power of programming languages. Thus, it is not meant to be used for any commercial purposes.
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+# Contributors
 
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+<a href="https://github.com/div-styl/WordAlchemy/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=div-styl/WordAlchemy" />
+</a>
