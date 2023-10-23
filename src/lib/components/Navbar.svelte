@@ -3,7 +3,7 @@
 </script>
 
 <nav class="border-b-[1px] border-gray-900">
-	<div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-2">
+	<div class="max-w-screen-xl flex items-center justify-between mx-auto p-2">
 		<a href="/" class="flex items-center">
 			<img src={Icon} class="h-8 mr-3" alt="WordAlchemy Logo" />
 			<span class="self-center text-2xl font-semibold whitespace-nowrap text-black"

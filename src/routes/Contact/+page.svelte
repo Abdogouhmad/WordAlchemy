@@ -8,6 +8,6 @@
 	<meta name="description" content={pageDescription} />
 </svelte:head>
 
-<h1 class="text-blue-800 text-6xl flex justify-center font-extrabold">
+<h1 class="text-blue-700 text-5xl pt-20 flex justify-center font-extrabold">
 	welcome to my contact page
 </h1>
