@@ -1,1 +1,0 @@
-<h1 class="md:text-6xl text-2xl flex justify-center text-blue-600 font-black">Search about a word</h1>

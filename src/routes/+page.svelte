@@ -2,7 +2,7 @@
     let pageTitle = 'WordAlchemy';
     let pageDescription = 'Welcome to WordAlchemy';
 	import logo from '$lib/assets/wordalchemy.svg';
-	import { Engine } from '$lib';
+	import { DEngine } from '$lib';
 </script>
 
 <svelte:head>
@@ -15,5 +15,5 @@
 </section>
 
 <section class="flex justify-center pt-40 ">
-	<Engine />
+	<DEngine />
 </section>

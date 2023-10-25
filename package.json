@@ -29,5 +29,10 @@
 		"vite": "^4.4.2",
 		"vitest": "^0.34.0"
 	},
-	"type": "module"
+	"type": "module",
+	"dependencies": {
+		"flowbite": "^1.8.1",
+		"flowbite-svelte": "^0.44.18",
+		"flowbite-svelte-icons": "^0.4.4"
+	}
 }
