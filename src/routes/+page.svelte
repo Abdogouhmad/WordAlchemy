@@ -1,7 +1,8 @@
 <script>
-	let welcome = 'welcome to WordAlchemy';
     let pageTitle = 'WordAlchemy';
     let pageDescription = 'Welcome to WordAlchemy';
+	import logo from '$lib/assets/wordalchemy.svg';
+	import { Engine } from '$lib';
 </script>
 
 <svelte:head>
@@ -9,6 +10,10 @@
 	<meta name="description" content={pageDescription} />
 </svelte:head>
 
-<main class="pt-20">
-	<h1 class="text-5xl flex justify-center text-blue-600 font-black">{welcome}</h1>
-</main>
+<section class="flex justify-center pt-40 flex-row">
+	<img src={logo} alt="worldalchemy logo" class="md:w-[700px] md:h-[140px] w-[300px] h-[100px]">
+</section>
+
+<section class="flex justify-center pt-40 ">
+	<Engine />
+</section>
