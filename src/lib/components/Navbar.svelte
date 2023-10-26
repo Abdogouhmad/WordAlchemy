@@ -2,7 +2,7 @@
     import Icon from "$lib/assets/Icon.svg";
 </script>
 
-<nav class="border-b-[1px] border-gray-900">
+<nav class="border-b-[1px] bg-[#FCFCFC] border-gray-900">
 	<div class="max-w-screen-xl flex items-center justify-between mx-auto p-3">
 		<a href="/" class="flex items-start justify-start">
 			<img src={Icon} class="h-8 mr-3" alt="WordAlchemy Logo" />
@@ -12,9 +12,6 @@
 		</a>
         <div class="hidden md:flex  ">
             <ul class="text-black  text-2xl flex items-center space-x-5 font-medium ">
-                <li>
-                    <a href="/Dictionary" class="hover:border-b-2 hover:border-b-blue-500"> Dictionaries</a>
-                </li>
                 <li>
                     <a href="/Ipa" class="hover:border-b-2 hover:border-b-blue-500"> IPA</a>
                 </li>
