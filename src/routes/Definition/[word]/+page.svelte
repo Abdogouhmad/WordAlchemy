@@ -1,15 +1,15 @@
 <script>
 	import { page } from '$app/stores';
-	import { b } from 'vitest/dist/reporters-5f784f42';
+	import audio from '$lib/assets/audio.svg';
 	let word = $page.params.word;
 	let pagetitle = `Definition of ${word}`;
 	let description = `Definition page of  ${word}`;
 
 	export let data;
-	$: define = data.def.define;// #TODO: fix the props
-	$: phontics = data.phoni.phonetics;
-	$: partspch = data.partsp.partofspeach;
-	$: phoniaudio = data.phoniaudio.phoneaudio;
+	$: define = data.define;
+	$: phontics = data.phonetics;
+	$: partspch = data.partofspeach;
+	$: phoniaudio = data.phoneaudio;
 
 	console.log('data from page:', JSON.stringify(data, null, 4));
 </script>
@@ -27,21 +27,30 @@
 		</p>
 	</div>
 	<!-- * top container -->
-	{#if define}
-		<div class="flex justify-center pt-5">
+	{#if data}
+		<div class="flex md:p-[300px] p-10 flex-col pt-10">
 			<!-- align to left -->
-			<div class="flex justify-start">
-				<h1 class="text-5xl font-bold text-blue-600">{word} <em class="font-normal text-2xl text-gray-700 ">{partspch}</em></h1>
+			<h1 class="text-3xl font-bold text-[#193258]">
+				{word} <em class="font-normal text-base text-gray-700">{partspch}</em>
+			</h1>
+			<h2 class="pt-3">
+				<a href={phoniaudio} class="flex flex-row">
+					<img src={audio} alt="audio" class="mx-2" />
+					{phontics}
+				</a>
+			</h2>
+			<div class="border-b flex font-light text-justify pt-5 border-black">
+				<h1>
+					<em>{define}</em>
+				</h1>
 			</div>
 		</div>
-		<div class="flex justify-center pt-5 border border-t border-black">
-			<!-- align to left -->
-			<p class="text-black text-3xl font-bold">Hello world</p>
-		</div>	
 	{:else}
-		<h1 class="text-center justify-center flex text-6xl text-red-600">
-			No definition for the word: <b>{word}</b>
-		</h1>
+		<div class="pt-10">
+			<h1 class="text-center justify-center flex text-6xl text-red-600">
+				No definition for the word: <b>{word}</b>
+			</h1>
+		</div>
 	{/if}
 </main>
 <!-- #TODO: Add the definition it is not working -->
