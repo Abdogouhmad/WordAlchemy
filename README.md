@@ -18,6 +18,7 @@ It is a Dictionary app which mixed IPA (_International Phonetic Alphabet_) and w
 This Project meant for eductional purposes only.
 It is created under the passion and love of human language and also the power of programming languages. Thus, it is not meant to be used for any commercial purposes.
 
+
 # Contributors
 
 <a href="https://github.com/div-styl/WordAlchemy/graphs/contributors">
