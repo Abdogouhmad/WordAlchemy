@@ -34,7 +34,7 @@
 			<h1 class="text-5xl font-bold text-black">
 				{word} <em class="font-normal text-base text-blue-700">{partspch}</em>
 			</h1>
-			<h2 class="pt-3">
+			<h2 class="pt-5">
 				<a href={phoniaudio} class="flex flex-row">
 					<img src={audio} alt="audio" class="mx-2" />
 					<p class="text-blue-700">{phontics}</p>
@@ -42,11 +42,11 @@
 			</h2>
 			<div class="pt-5 flex flex-row justify-between">
 				<h1 class="font-bold md:text-3xl text-2xl text-black"><em>Meanings</em></h1>
-				<hr class="w-[400px]  mx-2 border-1 border-black md:my-5 my-5">
+				<hr class="w-[15cm]  mx-2 border-1 border-black md:my-5 my-5">
 			</div>
 		</div>
-		<div class="flex font-normal relative top-[-40px] md:left-[510px] left-10 text-justify pt-5">
-			<h1>
+		<div class="flex font-normal pl-5 md:p-10 lg:pl-[390px] pr-2  text-justify  ">
+			<h1 class="text-black ">
 				{define}
 			</h1>
 		</div>
