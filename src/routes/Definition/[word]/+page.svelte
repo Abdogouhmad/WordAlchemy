@@ -19,27 +19,32 @@
 	<meta name="description" content={description} />
 </svelte:head>
 
-<main class="pt-2">
+<div class="text-black font-thin justify-center flex pt-1 text-justify text-sm">
+	<p>
+		Definition of <b class="font-bold text-gray-700">{word}</b> From The WordAlchemy's Dictionary
+	</p>
+</div>
+<section class="pt-2">
 	<!-- * header -->
-	<div class="text-black font-thin justify-center flex text-justify text-sm">
-		<p>
-			Definition of <b class="font-bold text-gray-700">{word}</b> From The WordAlchemy's Dictionary
-		</p>
-	</div>
+
 	<!-- * top container -->
 	{#if data}
-		<div class="flex md:p-[300px] p-10 flex-col pt-10">
+		<div class="flex md:items-center p-10 flex-col">
 			<!-- align to left -->
-			<h1 class="text-3xl font-bold text-[#193258]">
-				{word} <em class="font-normal text-base text-gray-700">{partspch}</em>
+			<h1 class="text-5xl font-bold text-black">
+				{word} <em class="font-normal text-base text-blue-700">{partspch}</em>
 			</h1>
 			<h2 class="pt-3">
 				<a href={phoniaudio} class="flex flex-row">
 					<img src={audio} alt="audio" class="mx-2" />
-					{phontics}
+					<p class="text-blue-700">{phontics}</p>
 				</a>
 			</h2>
-			<div class="border-b flex font-light text-justify pt-5 border-black">
+			<div class="pt-5 flex flex-row justify-between">
+				<h1 class="font-bold md:text-3xl text-2xl text-black"><em>Meanings</em></h1>
+				<hr class="w-[400px]  mx-2 border-1 border-black md:my-5 my-5">
+			</div>
+			<div class="flex font-light text-justify pt-5">
 				<h1>
 					<em>{define}</em>
 				</h1>
@@ -52,5 +57,13 @@
 			</h1>
 		</div>
 	{/if}
-</main>
+</section>
 <!-- #TODO: Add the definition it is not working -->
+
+<style>
+	.divider {
+		flex-grow: 1;
+		border-top: 1px solid black;
+		margin-left: 10px; /* Adjust the margin as needed */
+	}
+</style>
