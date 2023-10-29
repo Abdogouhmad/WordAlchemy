@@ -24,7 +24,7 @@
 		Definition of <b class="font-bold text-gray-700">{word}</b> From The WordAlchemy's Dictionary
 	</p>
 </div>
-<section class="pt-2">
+<section class="flex flex-col">
 	<!-- * header -->
 
 	<!-- * top container -->
@@ -44,11 +44,11 @@
 				<h1 class="font-bold md:text-3xl text-2xl text-black"><em>Meanings</em></h1>
 				<hr class="w-[400px]  mx-2 border-1 border-black md:my-5 my-5">
 			</div>
-			<div class="flex font-light text-justify pt-5">
-				<h1>
-					<em>{define}</em>
-				</h1>
-			</div>
+		</div>
+		<div class="flex font-normal relative top-[-40px] md:left-[510px] left-10 text-justify pt-5">
+			<h1>
+				{define}
+			</h1>
 		</div>
 	{:else}
 		<div class="pt-10">
