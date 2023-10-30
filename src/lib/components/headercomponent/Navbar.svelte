@@ -1,7 +1,6 @@
 <script>
 	import Icon from '$lib/assets/Icon.svg';
-	import { DEngine } from '$lib';
-	import { MEngine } from '$lib';
+
 </script>
 
 <nav class="border-b-[1px] bg-[#FCFCFC] border-gray-900">
@@ -13,11 +12,11 @@
 		<div class="hidden md:flex">
 			<ul class="text-black text-2xl flex items-center space-x-5 font-medium">
 				<li>
-					<a href="/Ipa" class="hover:border-b-2 hover:border-b-blue-500"> IPA</a>
+					<a href="/Ipa" class="hover:border-b-2 hover:border-b-blue-500"> Practice</a>
 				</li>
-				<li>
+				<!-- <li>
 					<a href="/Wordlists" class="hover:border-b-2 hover:border-b-blue-500"> Wordlists</a>
-				</li>
+				</li> -->
 				<li>
 					<a href="/Contact" class="hover:border-b-2 hover:border-b-blue-500">contact</a>
 				</li>
@@ -26,9 +25,4 @@
 	</div>
 </nav>
 
-<section class="hidden md:flex md:justify-center md:flex-row pt-10">
-	<DEngine />
-</section>
-<section class="pt-5">
-	<MEngine />
-</section>
+

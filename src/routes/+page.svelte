@@ -37,8 +37,8 @@
 </section> -->
 
 <section class="flex justify-center pt-20 flex-col">
-	<h1 class="md:text-6xl text-2xl flex justify-center text-black font-black">
+	<h1 class="md:text-5xl lg:text-6xl text-2xl flex justify-center text-black font-black">
 		Free web Dictionary
 	</h1>
-	<div bind:this={animationContainer} class="h-[37vh]  animate-fade-in-once lg:h-[67vh]" />
+	<div bind:this={animationContainer} class="md:h-[30vh]  h-[200px]  lg:h-[67vh]" />
 </section>

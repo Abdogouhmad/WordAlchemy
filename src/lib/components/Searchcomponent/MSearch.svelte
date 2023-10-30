@@ -52,10 +52,10 @@
 			type="text"
 			bind:value={word}
 			placeholder="Search for a word"
-			class="w-full p-[8px] rounded-md bg-gray-100/100 text-black text-md font-medium hover:bg-white border hover:border-blue-600 mr-4"
+			class="w-full p-[8px] rounded-md bg-gray-100/100 text-black text-md font-medium hover:bg-white border hover:border-blue-600 mr-2"
 		/>
 	</form>
 	<button on:click={goword} class="relative left-[4px]">
-		<img src={SearchIcon} alt="searchicon" class="w-[50px] h-[50px]" />
+		<img src={SearchIcon} alt="searchicon" class=" h-[45px]" />
 	</button>
 </div>
