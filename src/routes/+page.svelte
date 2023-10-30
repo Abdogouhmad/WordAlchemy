@@ -10,10 +10,10 @@
 	<meta name="description" content={pageDescription} />
 </svelte:head>
 
-<section class="flex justify-center pt-40 flex-row">
+<!-- <section class="flex justify-center pt-40 flex-row">
 	<img src={logo} alt="worldalchemy logo" class="md:w-[700px] md:h-[140px] w-[300px] h-[100px]">
-</section>
+</section> -->
 
-<section class="flex justify-center pt-40 ">
+<!-- <section class="flex justify-center pt-40 ">
 	<DEngine />
-</section>
+</section> -->

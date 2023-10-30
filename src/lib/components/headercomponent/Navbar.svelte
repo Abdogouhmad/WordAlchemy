@@ -1,5 +1,7 @@
 <script>
     import Icon from "$lib/assets/Icon.svg";
+    import { DEngine } from "$lib";
+    import { MEngine } from "$lib";
 </script>
 
 <nav class="border-b-[1px] bg-[#FCFCFC] border-gray-900">
@@ -25,3 +27,10 @@
         </div>
 	</div>
 </nav>
+
+<section class="hidden md:flex md:justify-center md:flex-row pt-5 ">
+    <DEngine />
+</section>
+<section class="pt-5">
+    <MEngine />
+</section>
