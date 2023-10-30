@@ -1,15 +1,16 @@
 <script>
-	import { page } from '$app/stores';
 	import audio from '$lib/assets/audio.svg';
-	let word = $page.params.word;
-	let pagetitle = `Definition of ${word}`;
-	let description = `Definition page of  ${word}`;
+
 
 	export let data;
 	$: define = data.define;
 	$: phontics = data.phonetics;
 	$: partspch = data.partofspeach;
 	$: phoniaudio = data.phoneaudio;
+	$: wordifne = data.worddictionary;
+
+	let pagetitle = `Definition of ${wordifne}`;
+	let description = `Definition page of  ${wordifne}`;
 
 	console.log('data from page:', JSON.stringify(data, null, 4));
 </script>
@@ -21,18 +22,19 @@
 
 <div class="text-black font-thin justify-center flex pt-1 text-justify text-sm">
 	<p>
-		Definition of <b class="font-bold text-gray-700">{word}</b> From The WordAlchemy's Dictionary
+		Definition of <b class="font-bold text-gray-700">{wordifne}</b> From The WordAlchemy's Dictionary
 	</p>
 </div>
+
+
 <section class="flex flex-col">
-	<!-- * header -->
 
 	<!-- * top container -->
 	{#if data}
 		<div class="flex md:items-center p-10 flex-col">
 			<!-- align to left -->
 			<h1 class="text-5xl font-bold text-black">
-				{word} <em class="font-normal text-base text-blue-700">{partspch}</em>
+				{wordifne} <em class="font-normal text-base text-blue-700">{partspch}</em>
 			</h1>
 			<h2 class="pt-5">
 				<a href={phoniaudio} class="flex flex-row">
@@ -53,17 +55,8 @@
 	{:else}
 		<div class="pt-10">
 			<h1 class="text-center justify-center flex text-6xl text-red-600">
-				No definition for the word: <b>{word}</b>
+				No definition for the word: <b>{wordifne}</b>
 			</h1>
 		</div>
 	{/if}
 </section>
-<!-- #TODO: Add the definition it is not working -->
-
-<style>
-	.divider {
-		flex-grow: 1;
-		border-top: 1px solid black;
-		margin-left: 10px; /* Adjust the margin as needed */
-	}
-</style>

@@ -1,4 +1,4 @@
-<script lang="ts">
+<script>
 	export let word = '';
 	import SearchIcon from '$lib/assets/Vector.svg';
 	import { goto } from '$app/navigation';
@@ -9,7 +9,7 @@
 	export const handllang = () => {
 		drop = !drop;
 	};
-	export const selectinglang = (language: string) => {
+	export const selectinglang = (language) => {
 		selectedlang = language;
 		drop = false;
 	};
