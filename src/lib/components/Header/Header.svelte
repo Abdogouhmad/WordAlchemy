@@ -1,6 +1,6 @@
 <script>
 	import Icon from '$lib/assets/Icon.svg';
-
+	import Selectheme from './Theme/selectheme.svelte';
 </script>
 
 <nav class="border-b-[1px] bg-[#FCFCFC] border-gray-900">
@@ -12,17 +12,16 @@
 		<div class="hidden md:flex">
 			<ul class="text-black text-2xl flex items-center space-x-5 font-medium">
 				<li>
-					<a href="/Ipa" class="hover:border-b-2 hover:border-b-blue-500"> Practice</a>
+					<a href="/Ipa" class="hover:border-b-2 hover:border-b-blue-500"> IPA</a>
 				</li>
-				<!-- <li>
+				<li>
 					<a href="/Wordlists" class="hover:border-b-2 hover:border-b-blue-500"> Wordlists</a>
-				</li> -->
+				</li>
 				<li>
 					<a href="/Contact" class="hover:border-b-2 hover:border-b-blue-500">contact</a>
 				</li>
 			</ul>
 		</div>
+		<Selectheme />
 	</div>
 </nav>
-
-

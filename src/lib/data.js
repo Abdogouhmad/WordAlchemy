@@ -1,4 +1,4 @@
-const IPhonetics = {
+export const IPhonetics = {
 	text: '',
 	audio: '',
 	sourceUrl: '',
@@ -8,21 +8,21 @@ const IPhonetics = {
 	}
 };
 
-const IDefinition = {
+export const IDefinition = {
 	definition: '',
 	synonyms: [],
 	antonyms: [],
 	example: ''
 };
 
-const IMeaning = {
+export const IMeaning = {
 	partOfSpeech: '',
 	definitions: [IDefinition],
 	synonyms: [],
 	antonyms: []
 };
 
-const IData = {
+export const IData = {
 	word: '',
 	phonetic: null,
 	phonetics: [IPhonetics],
@@ -37,7 +37,7 @@ const IData = {
 	resolution: ''
 };
 
-const IStoreData = {
+export const IStoreData = {
 	data: IData,
 	isLoading: false,
 	status: ''
