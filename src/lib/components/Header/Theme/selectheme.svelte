@@ -1,31 +1,47 @@
 <script>
-	import { Themestore } from '$lib';
-	import { Toggletheme } from '$lib';
-	import { Moon } from '$lib';
-	import { Sun } from '$lib';
+	import { onMount } from 'svelte';
+	import { fade } from 'svelte/transition';
+	let darkMode = false;
+	let darkModeReady = false;
 
-	const klass =
-		'px-3 py-2 rounded-md leading-5 font-medium \
-    focus:outline-none focus:text-white focus:bg-primary-300 \
-    text-neutral-800 hover:text-white hover:bg-primary-300 \
-    dark:text-white dark:hover:bg-primary-700 dark:focus:bg-primary-700 \
-    dark:bg-black';
+	onMount(() => {
+		darkMode = document.documentElement.classList.contains('dark');
+		document.body.classList.add('transition', 'ease-in-out', 'duration-500');
+		darkModeReady = true;
+	});
 </script>
 
-<div class="flex-0">
-	<a
-		href="/app/theme"
-		class="block {klass}"
-		aria-label="Toggle Light and Dark mode"
-		on:click|preventDefault={() => {
-			Toggletheme(Themestore, $Themestore);
-		}}
-	>
-		<div class="hidden dark:block">
-			<Sun />
-		</div>
-		<div class="dark:hidden">
-			<Moon />
-		</div>
-	</a>
-</div>
+{#if darkModeReady}
+	<div class="h-8 toggle" in:fade={{ duration: 800 }}>
+		<input
+			type="checkbox"
+			id="toggle"
+			bind:checked={darkMode}
+			on:change={() => document.documentElement.classList.toggle('dark')}
+		/>
+		<label id="darkicon" title="Toggle dark mode" for="toggle" data-dark={darkMode ? '🌙' : '🌞'} />
+	</div>
+{/if}
+
+<style style lang="postcss">
+	.toggle input[type='checkbox'] {
+		display: none;
+	}
+
+	.toggle label {
+		@apply inline-block cursor-pointer relative transition-all ease-in-out duration-300 w-12 h-6 rounded-3xl border border-solid border-gray-700 bg-yellow-100;
+	}
+
+	.toggle label::after {
+		content: attr(data-dark);
+		@apply flex items-center justify-center rounded-full cursor-pointer absolute top-px left-px transition-all ease-in-out duration-300 w-5 h-5 bg-transparent align-middle;
+	}
+
+	.toggle input[type='checkbox']:checked ~ label {
+		@apply bg-gray-500;
+	}
+
+	.toggle input[type='checkbox']:checked ~ label::after {
+		transform: translateX(24px);
+	}
+</style>
