@@ -18,6 +18,7 @@
 
 	const toggleNavBar = () => {
 		isNavOpen = !isNavOpen;
+		console.log(isNavOpen);
 	};
 </script>
 
@@ -47,9 +48,7 @@
 
 <div
 	class:open={isNavOpen}
-	class="transitio ${
-        isNavOpen ? 'translate-x-0' : '-translate-x-full'
-    }"
+	class="transitio ${isNavOpen ? 'translate-x-0' : '-translate-x-full'}"
 	id="navbar-default"
 >
 	{#each route as { name, href }}
