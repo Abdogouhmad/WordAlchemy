@@ -36,6 +36,5 @@
 			</ul>
 		</div>
 		<Toggletheme />
-		<Mobilebar />
 	</div>
 </nav>
