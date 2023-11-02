@@ -8,14 +8,17 @@
 	let lottieElement;
 
 	onMount(() => {
-		lottie.loadAnimation({
+		// Load and display the Lottie animation
+		const animation = lottie.loadAnimation({
 			container: lottieElement,
-			loop: true,
-			autoplay: true,
-			animationData: Catlookup
+			loop: true, // Set to true if you want the animation to loop
+			autoplay: true, // Set to true if you want the animation to play automatically
+			animationData: Catlookup // Replace with your Lottie animation data
 		});
+
 		return () => {
-			lottieElement.destroy();
+			// Cleanup when the component is unmounted
+			animation.destroy();
 		};
 	});
 </script>
@@ -27,5 +30,7 @@
 
 <section class="flex flex-col justify-center items-center">
 	<div bind:this={lottieElement} class="md:h-[30vh] h-[200px] lg:h-[67vh]" />
-	<h1 class="md:text-5xl font-bold">Weclome to WordAlchemy</h1>
+	<h1 class="md:text-5xl text-2xl pt-5 font-mono">Weclome to WordAlchemy</h1>
+	<p class="md:text-3xl text-base font-light p-3 pt-3 text-center">Hello I know you are tired of ads in
+		websites, well you have just discovered WordAlchemy!!!</p>
 </section>
