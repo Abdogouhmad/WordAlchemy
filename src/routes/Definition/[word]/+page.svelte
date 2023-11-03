@@ -1,11 +1,11 @@
 <script>
-	import { PageData } from './$types';
+
 	import { fade } from 'svelte/transition';
 	import { Meaning } from '$lib';
 
 	let pagetitle = `Definition`;
 	let description = `Definition page`;
-	export const data = PageData;
+	export let data;
 	$: ({ result, pathname } = data);
 </script>
 
@@ -16,6 +16,6 @@
 
 {#key pathname}
 	<div in:fade={{ delay: 300 }}>
-		<Meaning data={result[0]} />
+		<h1 class="text-3xl justify-center ">{result ? result.word : ''}</h1> 
 	</div>
 {/key}

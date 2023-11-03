@@ -1,28 +1,28 @@
-/** @type {import('./$types').PageServerLoad} */
+// /** @type {import('./$types').PageServerLoad} */
 import { error as svelteError } from '@sveltejs/kit';
-import { IData } from '../../../lib/data_dictionary.js';
 
-export const load = async ({ fetch, params: { query }, url }) => {
-	const fetchWord = async (query) => {
-		const res = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${query}`);
+/**
+ * @typedef {Object} RouteParams
+ * @property {string} query
+ * ...
+ */
 
-		if (!res.ok) {
-			throw svelteError(res.status, 'Not Found');
-		}
-		const data = await res.json();
 
-		return data;
-	};
+export async function load({ fetch, params, url }) {
+    const wordfetch = async () => {
+        const response = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${query}`);
+        if (!response.ok) {
+            throw svelteError(404, 'Word not found');
+        }
+        const data = await response.json();
+        console.log(JSON.stringify(data, null, 4));
+        return data;
+    };
+    const { pathname } = url;
 
-	try {
-		const { pathname } = url;
-
-		const data = await fetchWord(query);
-		return {
-			result: data,
-			pathname
-		};
-	} catch (error) {
-		throw svelteError(505, 'something went wrong');
-	}
-};
+    const data = await wordfetch(query);
+    return {
+        result: data,
+        pathname
+    };
+}
