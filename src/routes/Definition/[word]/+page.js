@@ -1,17 +1,28 @@
-export async function load({ fetch, params }) {
-	let { word } = params;
+/** @type {import('./$types').PageServerLoad} */
+import { error as svelteError } from '@sveltejs/kit';
+import { IData } from '../../../lib/data_dictionary.js';
 
-	// Make the API request here
-	let response = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`);
-	let data = await response.json();
+export const load = async ({ fetch, params: { query }, url }) => {
+	const fetchWord = async (query) => {
+		const res = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${query}`);
 
-	let worddictionary = data[0]?.word;
-	let define = data[0]?.meanings[1]?.definitions[0]?.definition;
-	let partofspeach = data[0]?.meanings[1]?.partOfSpeech;
-	let phonetics = data[0]?.phonetic;
-	let phoneaudio = data[0]?.phonetics[6]?.audio;
-	console.log('define from server: ' + JSON.stringify(define, null, 4));
+		if (!res.ok) {
+			throw svelteError(res.status, 'Not Found');
+		}
+		const data = await res.json();
 
-	// Return the data as a prop
-	return { define, partofspeach, phonetics, phoneaudio, worddictionary };
-}
+		return data;
+	};
+
+	try {
+		const { pathname } = url;
+
+		const data = await fetchWord(query);
+		return {
+			result: data,
+			pathname
+		};
+	} catch (error) {
+		throw svelteError(505, 'something went wrong');
+	}
+};
