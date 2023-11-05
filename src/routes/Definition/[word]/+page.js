@@ -1,28 +1,24 @@
-// /** @type {import('./$types').PageServerLoad} */
-import { error as svelteError } from '@sveltejs/kit';
+export async function load({ fetch, params }) {
+	let { word } = params;
 
-/**
- * @typedef {Object} RouteParams
- * @property {string} query
- * ...
- */
+	// Make the API request here
+	let response = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`);
+	let data = await response.json();
+	let dataparesed = JSON.parse(JSON.stringify(data));
+	let firstarr = dataparesed[0]?.meanings[0];
+	console.log(firstarr.meanings);
 
-
-export async function load({ fetch, params, url }) {
-    const wordfetch = async () => {
-        const response = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${query}`);
-        if (!response.ok) {
-            throw svelteError(404, 'Word not found');
-        }
-        const data = await response.json();
-        console.log(JSON.stringify(data, null, 4));
-        return data;
-    };
-    const { pathname } = url;
-
-    const data = await wordfetch(query);
-    return {
-        result: data,
-        pathname
-    };
+	return {
+		firstarr
+	};
 }
+
+// let worddictionary = dataparesed[0]?.word;
+// let define = dataparesed[0]?.meanings[1]?.definitions[0]?.definition;
+// let partofspeach = dataparesed[0]?.meanings[1]?.partOfSpeech;
+// let phonetics = dataparesed[0]?.phonetic;
+// let phoneaudio = dataparesed[0]?.phonetics[6]?.audio;
+// console.log('define from server: ' + JSON.stringify(define, null, 4));
+
+// // Return the data as a prop
+// return { define, partofspeach, phonetics, phoneaudio, worddictionary };
