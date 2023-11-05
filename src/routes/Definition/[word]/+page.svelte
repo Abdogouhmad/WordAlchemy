@@ -3,11 +3,11 @@
 	import { page } from '$app/stores';
 
 	export let data;
+	$: wordifne = data.worddictionary;
 	$: define = data.firstarr.definitions[0].definition;
 	$: examples = data.firstarr.definitions[0].example;
 	$: partspch = data.firstarr.partOfSpeech;
 
-	const wordifne = $page.params.word;
 	let pagetitle = `Definition of ${wordifne}`;
 	let description = `Definition page of  ${wordifne}`;
 
@@ -39,9 +39,7 @@
 					{def}
 				{/each}
 			</p>
-
 		</div>
-
 	{:else}
 		<div class="pt-10">
 			<h1 class="text-center justify-center flex text-6xl text-red-600">

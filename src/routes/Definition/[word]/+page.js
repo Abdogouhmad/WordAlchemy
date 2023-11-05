@@ -5,11 +5,13 @@ export async function load({ fetch, params }) {
 	let response = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`);
 	let data = await response.json();
 	let dataparesed = JSON.parse(JSON.stringify(data));
+	let worddictionary = dataparesed[0]?.word;
 	let firstarr = dataparesed[0]?.meanings[0];
 	console.log(firstarr.meanings);
 
 	return {
-		firstarr
+		firstarr, 
+		worddictionary
 	};
 }
 
