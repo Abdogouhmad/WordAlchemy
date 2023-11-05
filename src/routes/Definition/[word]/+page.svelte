@@ -5,7 +5,7 @@
 	export let data;
 	$: wordifne = data.worddictionary;
 	$: define = data.firstarr.definitions[0].definition;
-	$: examples = data.firstarr.definitions[0].example;
+	$: examples = data.firstarr.definitions[0].example || 'No examples found';
 	$: partspch = data.firstarr.partOfSpeech;
 
 	let pagetitle = `Definition of ${wordifne}`;
@@ -39,6 +39,13 @@
 					{def}
 				{/each}
 			</p>
+			<ul class="pt-5 text-justify text-sm md:text-base font-medium list-disc list-inside">
+				<li>
+					{#each examples as ex}
+						{ex}
+					{/each}
+				</li>
+			</ul>
 		</div>
 	{:else}
 		<div class="pt-10">
