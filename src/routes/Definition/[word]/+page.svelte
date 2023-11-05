@@ -1,18 +1,18 @@
 <script>
-	import audio from '$lib/assets/audio.svg';
-
+	// import audio from '$lib/assets/audio.svg';
+	// import { page } from '$app/stores';
 
 	export let data;
-	$: define = data.define;
-	$: phontics = data.phonetics;
-	$: partspch = data.partofspeach;
-	$: phoniaudio = data.phoneaudio;
-	$: wordifne = data.worddictionary;
+	$: partspch = data?.dataparesed?.partofspeech;
+	$: wordifne = data?.dataparesed?.worddictionary;
+	$: define = data?.dataparesed?.difine0 || 'no definition found';
+	$: examples = data?.dataparesed?.example0 || 'no example found';
+	$: {
+		console.log(data);
+	}
 
 	let pagetitle = `Definition of ${wordifne}`;
 	let description = `Definition page of  ${wordifne}`;
-
-	console.log('data from page:', JSON.stringify(data, null, 4));
 </script>
 
 <svelte:head>
@@ -26,31 +26,39 @@
 	</p>
 </div>
 
-
-<section class="flex flex-col">
-
+<section class="@container flex flex-col">
 	<!-- * top container -->
 	{#if data}
 		<div class="flex md:items-center p-10 flex-col">
 			<!-- align to left -->
-			<h1 class="text-5xl font-bold ">
+			<h1 class="text-5xl font-bold">
 				{wordifne} <em class="font-normal text-base text-blue-600">{partspch}</em>
 			</h1>
-			<h2 class="pt-5">
-				<a href={phoniaudio} class="flex flex-row">
-					<img src={audio} alt="audio" class="mx-2" />
-					<p class="text-blue-600">{phontics}</p>
-				</a>
-			</h2>
 			<div class="pt-5 flex flex-row justify-between">
-				<h1 class="font-bold md:text-3xl text-2xl "><em>Meanings</em></h1>
-				<hr class="w-[15cm]  mx-2 border-1  md:my-5 my-5">
+				<h1 class="font-bold md:text-2xl italic text-lg">{partspch}</h1>
+				<hr class="w-[10cm] md:w-[20cm] mx-2 border-1 md:my-5 my-3" />
 			</div>
-		</div>
-		<div class="flex font-normal pl-5 md:p-5  pr-2 justify-center items-center    ">
-			<h1 class="flex justify-center items-center">
-				{define}
-			</h1>
+			<!-- !meaning section -->
+			<div>
+				<h2 class="md:text-2xl pt-4 text-base font-semibold italic">Meaning</h2>
+				<ul class="pt-5 text-justify text-sm md:text-base font-medium list-disc list-inside">
+					<li class="text-base md:text-center leading-relaxed">
+						{#if define}
+							{define}
+							{#if examples && examples.length > 0}
+								<q class="block text-sm text-[#979797] italic pt-2">{examples}</q>
+							{/if}
+						{/if}
+					</li>
+				</ul>
+			</div>
+
+			<!-- 
+			<p class=" text-justify text-sm md:text-base pt-5 font-medium">
+				{#each define as def}
+					{def}
+				{/each}
+			</p> -->
 		</div>
 	{:else}
 		<div class="pt-10">

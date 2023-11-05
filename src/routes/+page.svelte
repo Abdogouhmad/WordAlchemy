@@ -30,7 +30,7 @@
 
 <section class="flex flex-col justify-center items-center">
 	<div bind:this={lottieElement} class="md:h-[30vh] h-[200px] lg:h-[67vh]" />
-	<h1 class="md:text-5xl text-2xl pt-5 font-mono">Weclome to WordAlchemy</h1>
+	<h1 class="md:text-5xl text-2xl pt-5 font-mono">Welcome to WordAlchemy</h1>
 	<p class="md:text-3xl text-base font-light p-3 pt-3 text-center">Hello I know you are tired of ads in
 		websites, well you have just discovered WordAlchemy!!!</p>
 </section>

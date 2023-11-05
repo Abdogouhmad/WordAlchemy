@@ -5,3 +5,5 @@ export { default as Navbar } from './components/Header/Header.svelte';
 export { default as DEngine } from './components/Body/Searchbar.svelte';
 export { default as Catlookup } from './components/UI/cat.json';
 export { default as Caterror } from './components/UI/error404.json';
+export { default as Meaning } from './components/Result/Meaningresult/Meaning.svelte';
+
