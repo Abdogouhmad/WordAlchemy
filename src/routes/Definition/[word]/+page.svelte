@@ -5,9 +5,8 @@
 	export let data;
 	$: define = data?.dataparesed?.puredefine || 'no definition found';
 	$: partspch = data?.dataparesed?.partofspeech;
-	$: wordifne = data?.dataparesed?.worddictionary;
-	//$: define = data?.dataparesed?.difine0 || 'no definition found';
-	$: examples = data?.dataparesed?.example0 || 'no example found';
+	$: wordifne = data?.dataparesed?.wordtobedefine;
+	$: examples = data?.dataparesed?.example || 'no example found';
 	$: {
 		console.log(data);
 	}
@@ -43,16 +42,14 @@
 			<div>
 				<h2 class="md:text-2xl pt-4 text-base font-semibold italic">Meaning</h2>
 				<ul class="pt-5 text-justify text-sm md:text-base font-medium list-disc list-inside">
-					<li class="text-base md:text-center leading-relaxed">
-						{#if define}
-							{#each define as def}
-								{def}
+						<li class="text-base md:text-center leading-relaxed">
+							{#if define}
+								{define}
 								{#if examples && examples.length > 0}
 									<q class="block text-sm text-[#979797] italic pt-2">{examples}</q>
 								{/if}
-							{/each}
-						{/if}
-					</li>
+							{/if}
+						</li>
 				</ul>
 			</div>
 

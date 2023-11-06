@@ -1,11 +1,6 @@
 function Meaning(data) {
 	let dataparesed = JSON.parse(JSON.stringify(data));
 	if (dataparesed !== undefined) {
-		let worddictionary = dataparesed[0]?.word;
-		let partofspeech = dataparesed[0]?.meanings[0].partOfSpeech;
-		// let difine0 = dataparesed[0]?.meanings[0].definitions[0].definition;
-		let example0 = dataparesed[0]?.meanings[0].definitions[0].example;
-
 		let i;
 		for (i = 0; i < dataparesed[0]?.meanings.length; i++) {
 			if (dataparesed[0]?.meanings.length <= 0) {
@@ -14,16 +9,12 @@ function Meaning(data) {
 				};
 			}
 			return {
-				puredefine: dataparesed[i]?.meanings[i].definitions
+				puredefine: dataparesed[i]?.meanings[i].definitions[i].definition,
+				partofspeech: dataparesed[i]?.meanings[i].partOfSpeech,
+				wordtobedefine: dataparesed[i]?.word,
+				example: dataparesed[i]?.meanings[i].definitions[i].example
 			};
 		}
-
-		return {
-			partofspeech,
-			worddictionary,
-			// difine0,
-			example0
-		};
 	} else {
 		throw new Error('NO DATA NIGGA');
 	}
