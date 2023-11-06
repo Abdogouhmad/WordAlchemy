@@ -3,9 +3,10 @@
 	// import { page } from '$app/stores';
 
 	export let data;
+	$: define = data?.dataparesed?.puredefine;
 	$: partspch = data?.dataparesed?.partofspeech;
 	$: wordifne = data?.dataparesed?.worddictionary;
-	$: define = data?.dataparesed?.difine0 || 'no definition found';
+	//$: define = data?.dataparesed?.difine0 || 'no definition found';
 	$: examples = data?.dataparesed?.example0 || 'no example found';
 	$: {
 		console.log(data);
