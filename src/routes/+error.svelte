@@ -2,6 +2,7 @@
 	import { page } from '$app/stores';
 	import { onMount } from 'svelte';
 	import { Caterror } from '$lib';
+	import lottie from 'lottie-web';
 	let errorpage = $page.error?.message;
 	const pageTitle = '404 Not found';
 	const pageDescription = 'Page not found on WordAlchemy';

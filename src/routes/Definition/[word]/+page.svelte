@@ -3,9 +3,10 @@
 	// import { page } from '$app/stores';
 
 	export let data;
+	$: define = data?.dataparesed?.puredefine || 'no definition found';
 	$: partspch = data?.dataparesed?.partofspeech;
 	$: wordifne = data?.dataparesed?.worddictionary;
-	$: define = data?.dataparesed?.difine0 || 'no definition found';
+	//$: define = data?.dataparesed?.difine0 || 'no definition found';
 	$: examples = data?.dataparesed?.example0 || 'no example found';
 	$: {
 		console.log(data);
@@ -44,10 +45,12 @@
 				<ul class="pt-5 text-justify text-sm md:text-base font-medium list-disc list-inside">
 					<li class="text-base md:text-center leading-relaxed">
 						{#if define}
-							{define}
-							{#if examples && examples.length > 0}
-								<q class="block text-sm text-[#979797] italic pt-2">{examples}</q>
-							{/if}
+							{#each define as def}
+								{def}
+								{#if examples && examples.length > 0}
+									<q class="block text-sm text-[#979797] italic pt-2">{examples}</q>
+								{/if}
+							{/each}
 						{/if}
 					</li>
 				</ul>
