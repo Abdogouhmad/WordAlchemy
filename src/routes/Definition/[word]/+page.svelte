@@ -1,14 +1,17 @@
 <script>
 	// import audio from '$lib/assets/audio.svg';
 
-
 	export let data;
 	$: phonetic = data?.phonetics;
 	$: wordefine = data?.word;
 
-	const wordsearch = data.word;
-	let pagetitle = `Definition of ${wordsearch}`;
-	let description = `Definition page of  ${wordsearch}`;
+	let wordsearch, pagetitle, description;
+
+	$: {
+		wordsearch = wordefine;
+		pagetitle = `WordAlchemy | Definition of ${wordsearch}`;
+		description = `Definition page of ${wordsearch}`;
+	}
 </script>
 
 <svelte:head>
@@ -18,7 +21,8 @@
 
 <div class=" font-light justify-center flex pt-5 text-justify text-sm">
 	<p>
-		Definition of <b class="font-bold text-blue-400">{wordefine}</b> From The WordAlchemy's Dictionary
+		Definition of <b class="font-bold whitespace-pre-line text-blue-400">{wordefine}</b> From The WordAlchemy's
+		Dictionary
 	</p>
 </div>
 
@@ -34,16 +38,16 @@
 			{#each data.meanings as meaning}
 				<div class="pt-5 flex flex-row justify-between">
 					<h1 class="font-bold md:text-2xl italic text-xl">{meaning.partOfSpeech}</h1>
-					<hr class="w-[10cm] md:w-[20cm] mx-2 border-1 md:my-5 my-3" />
+					<hr class="w-full md:w-[25cm] mx-2 border-1 border-blue-600 my-4" />
 				</div>
 				<div>
 					<h2 class="md:text-2xl pt-4 text-base font-semibold italic">Meaning</h2>
 					<ul class="pt-5 text-sm md:text-base font-medium list-disc list-inside">
 						{#each meaning.definitions as def}
-							<li class="text-base md:text-start leading-relaxed">
+							<li class="text-base my-2 text-start leading-relaxed">
 								{def.definition}
 								{#if def.example}
-									<p class="block text-sm text-[#979797] italic pt-2">{def.example}</p>
+									<p class="block text-base text-blue-700 dark:text-blue-600/60 italic pt-3">{def.example}</p>
 								{/if}
 							</li>
 						{/each}
