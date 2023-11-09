@@ -1,33 +1,4 @@
-function Meaning(data) {
-	let dataparesed = JSON.parse(JSON.stringify(data));
-	if (dataparesed !== undefined) {
-		let worddictionary = dataparesed[0]?.word;
-		let partofspeech = dataparesed[0]?.meanings[0].partOfSpeech;
-		// let difine0 = dataparesed[0]?.meanings[0].definitions[0].definition;
-		let example0 = dataparesed[0]?.meanings[0].definitions[0].example;
-
-		let i;
-		for (i = 0; i < dataparesed[0]?.meanings.length; i++) {
-			if (dataparesed[0]?.meanings.length <= 0) {
-				return {
-					undefined
-				};
-			}
-			return {
-				puredefine: dataparesed[i]?.meanings[i].definitions
-			};
-		}
-
-		return {
-			partofspeech,
-			worddictionary
-			// difine0,
-			example0
-		};
-	} else {
-		throw new Error('NO DATA NIGGA');
-	}
-}
+import { cleanarray, capturebestphonetics} from './funchelper.js';
 
 export async function load({ fetch, params }) {
 	let { word } = params;
@@ -36,9 +7,28 @@ export async function load({ fetch, params }) {
 	let response = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`);
 	let data = await response.json();
 
-	let dataparesed = Meaning(data);
+	const myword = data[0]['word'];
+
+
+	const phoneticsArray = capturebestphonetics(
+		data[0]['phonetics'],
+		data[0]['phonetic']
+	);
+	const MeaningArray = data[0]['meanings'].map((meaning) => {
+		return cleanarray(meaning);
+	});
+
+	if (!phoneticsArray["text"] && data[0]["phonetic"]) {
+		phoneticsArray["text"] = data[0]["phonetic"];
+	  }
+	
+	console.log("from server phonetics --->",phoneticsArray);
+	console.log('for server meaning --->',MeaningArray);
+
 
 	return {
-		dataparesed
+		word: myword,
+		phonetics: phoneticsArray,
+		meanings: MeaningArray
 	};
 }
