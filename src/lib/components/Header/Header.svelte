@@ -8,10 +8,6 @@
 			herf: '/Ipa'
 		},
 		{
-			name: 'Wordlists',
-			herf: '/Wordlists'
-		},
-		{
 			name: 'Contact',
 			herf: '/Contact'
 		}
@@ -19,13 +15,13 @@
 </script>
 
 <nav class="border-b-[1px]">
-	<div class="max-w-screen-xl flex items-center justify-between mx-auto p-3">
+	<div class="max-w-screen-xl flex  justify-between mx-auto p-3">
 		<a href="/" class="flex items-start justify-start">
 			<img src={Icon} class="h-8 mr-3" alt="WordAlchemy Logo" />
 			<span class="text-2xl font-semibold">WordAlchemy</span>
 		</a>
 		<div class="hidden md:flex">
-			<ul class=" text-2xl flex items-center space-x-5 flex-row font-medium">
+			<ul class=" text-2xl flex  space-x-5 flex-row font-medium">
 				{#each route as item}
 					<li>
 						<a href={item.herf} class="hover:text-blue-600 hover:underline">
@@ -35,6 +31,7 @@
 				{/each}
 			</ul>
 		</div>
-		<Toggletheme />
+		<Toggletheme  />
 	</div>
+	
 </nav>
