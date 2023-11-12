@@ -1,6 +1,6 @@
 <script>
 	import Icon from '$lib/assets/Icon.svg';
-	import Mobilebar from './Mobileheader.svelte';
+	//import Mobilebar from './Mobileheader.svelte';
 	import Toggletheme from './Theme/selectheme.svelte';
 	export const route = [
 		{

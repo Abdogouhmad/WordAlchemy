@@ -1,9 +1,11 @@
 <script>
+	import { onMount } from 'svelte';
+	import { Caterror } from '$lib';
 	import { page } from '$app/stores';
 	let errorpage = $page.error?.message;
 	const pageTitle = '404 Not found';
 	const pageDescription = 'Page not found on WordAlchemy';
-	let dictionaries, wordsearch;
+	let dictionaries, wordsearch, lottieElement;
 	$: {
 		wordsearch = $page.params.word;
 		dictionaries = [
@@ -44,6 +46,19 @@
 			}
 		];
 	}
+	onMount(() => {
+		import('lottie-web').then(lottie => {
+			const animation = lottie.loadAnimation({
+				container: lottieElement,
+				loop: true,
+				autoplay: true,
+				animationData: Caterror
+			});
+			return () => {
+				animation.destroy();
+			}
+		})
+	})
 </script>
 
 <svelte:head>
@@ -53,7 +68,8 @@
 
 <div class="flex items-center justify-center h-screen">
 	<div class="flex flex-col items-center">
-		<h1 class="font-bold text-6xl text-blue-500 lg:text-8xl">{$page.status}</h1>
+		<!-- <h1 class="font-bold text-6xl text-blue-500 lg:text-8xl">{$page.status}</h1> -->
+		<div bind:this={lottieElement} class="md:h-[30vh] h-[200px] lg:h-[67vh]" />
 
 		<h6 class="mb-2 text-2xl font-bold text-center text-black md:text-4xl lg:text-6xl">
 			<span class="text-red-500">Oops!</span> Definition {errorpage}
@@ -75,5 +91,4 @@
 			{/each}
 		</div>
 	</div>
-
 </div>
