@@ -17,7 +17,7 @@
 <nav class="border-b-[1px]">
 	<div class="max-w-screen-xl flex  justify-between mx-auto p-3">
 		<a href="/" class="flex items-start justify-start">
-			<img src={Icon} class="h-8 mr-3" alt="WordAlchemy Logo" />
+			<img src={Icon} class="h-7 w-7 mr" alt="WordAlchemy Logo" />
 			<span class="text-2xl font-semibold">WordAlchemy</span>
 		</a>
 		<div class="hidden md:flex">
