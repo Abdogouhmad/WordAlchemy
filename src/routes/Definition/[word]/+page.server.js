@@ -14,9 +14,9 @@ export async function load({ fetch, params }) {
 			return cleanarray(meaning);
 		});
 
-		if (!phoneticsArray['text'] && data[0]['phonetic']) {
-			phoneticsArray['text'] = data[0]['phonetic'];
-		}
+		// if (!phoneticsArray['text'] && data[0]['phonetic']) {
+		// 	phoneticsArray['text'] = data[0]['phonetic'];
+		// }
 
 		console.log('from server phonetics --->', phoneticsArray);
 		console.log('for server meaning --->', MeaningArray);

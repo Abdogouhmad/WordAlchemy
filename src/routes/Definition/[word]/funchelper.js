@@ -27,29 +27,26 @@ export const cleanarray = (array) => {
  * @return {Object} The matched phonetic object.
  */
 export const capturebestphonetics = (phoneticsArray, ipa) => {
-    const match = {}
-    let phonetic;
+	const match = {};
 
-    if (ipa) {
-        match['text'] = ipa;
-    }
+	if (ipa) {
+		match['text'] = ipa;
+	}
 
-    for (phonetic in phoneticsArray) {
-        if (phonetic?.text && !match["text"]){
-            match['text'] = phonetic.text
+	for (let phonetic of phoneticsArray) {
+		if (phonetic?.text && !match['text']) {
+			match['text'] = phonetic?.text;
+		}
 
-        }
+		if (phonetic?.audio && !match['audio']) {
+			match['audio'] = phonetic?.audio;
+		}
 
-        if (phonetic?.audio && !match["audio"]) {
-            match["audio"] = phonetic?.audio;
-        }
-        if (match["text"] && match["audio"]) break;
-    }
-    return match
-}
-
-
-
+		if (match['text'] && match['audio']) break;
+	}
+	return match;
+};
+// ---
 // /**
 //  * Generates a function comment for the given function body.
 //  *
