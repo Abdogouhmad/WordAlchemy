@@ -2,16 +2,16 @@
 	import Icon from '$lib/assets/Icon.svg';
 	//import Mobilebar from './Mobileheader.svelte';
 	import Toggletheme from './Theme/selectheme.svelte';
-	export const route = [
-		{
-			name: 'IPA',
-			herf: '/Ipa'
-		},
-		{
-			name: 'Contact',
-			herf: '/Contact'
-		}
-	];
+	// export const route = [
+	// 	{
+	// 		name: 'IPA',
+	// 		herf: '/Ipa'
+	// 	},
+	// 	{
+	// 		name: 'Contact',
+	// 		herf: '/Contact'
+	// 	}
+	// ];
 </script>
 
 <nav class="border-b-[1px]">
@@ -20,7 +20,7 @@
 			<img src={Icon} class="h-7 w-7 mr" alt="WordAlchemy Logo" />
 			<span class="text-2xl font-semibold">WordAlchemy</span>
 		</a>
-		<div class="hidden md:flex">
+		<!-- <div class="hidden md:flex">
 			<ul class=" text-2xl flex  space-x-5 flex-row font-medium">
 				{#each route as item}
 					<li>
@@ -30,7 +30,7 @@
 					</li>
 				{/each}
 			</ul>
-		</div>
+		</div> -->
 		<Toggletheme  />
 	</div>
 	

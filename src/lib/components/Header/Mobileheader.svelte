@@ -1,18 +1,18 @@
 <script>
-	const route = [
-		{
-			name: 'IPA',
-			href: '/Ipa'
-		},
-		{
-			name: 'Wordlists',
-			href: '/Wordlists'
-		},
-		{
-			name: 'Contact',
-			href: '/Contact'
-		}
-	];
+	// const route = [
+	// 	{
+	// 		name: 'IPA',
+	// 		href: '/Ipa'
+	// 	},
+	// 	{
+	// 		name: 'Wordlists',
+	// 		href: '/Wordlists'
+	// 	},
+	// 	{
+	// 		name: 'Contact',
+	// 		href: '/Contact'
+	// 	}
+	// ];
 
 	let isNavOpen = false;
 
@@ -46,7 +46,7 @@
 	</svg>
 </button>
 
-<div
+<!-- <div
 	class:open={isNavOpen}
 	class="transitio ${isNavOpen ? 'translate-x-0' : '-translate-x-full'}"
 	id="navbar-default"
@@ -58,4 +58,4 @@
 			>{name}</a
 		>
 	{/each}
-</div>
+</div> -->
