@@ -23,6 +23,7 @@
 			dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-500 dark:text-white
 			dark:hover:border-blue-500 "
 			placeholder="Search for a word..."
+			aria-label='Search input'
 			required
 		/>
 		<button
