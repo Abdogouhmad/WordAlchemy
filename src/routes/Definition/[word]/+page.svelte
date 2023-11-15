@@ -1,9 +1,19 @@
 <script>
-	// import audio from '$lib/assets/audio.svg';
+	import AudioIcon from '$lib/assets/audio.svg';
 
 	export let data;
 	$: phonetic = data?.phonetics;
 	$: wordefine = data?.word;
+	$: audioSource = data?.phonetics.audio;
+
+	const playaudio = () => {
+		if (audioSource) {
+			const audio = new Audio(audioSource);
+			audio.play();
+		} else {
+			alert('No audio available for this word');
+		}
+	};
 
 	let wordsearch, pagetitle, description, dictionaries;
 
@@ -20,22 +30,26 @@
 			},
 			{
 				name: 'Merriam-Webster',
-				imageurl:'https://th.bing.com/th/id/R.9ec2334023d1b77d96e817fec0867e92?rik=1o6%2f82j%2b732iNg&pid=ImgRaw&r=0',
+				imageurl:
+					'https://th.bing.com/th/id/R.9ec2334023d1b77d96e817fec0867e92?rik=1o6%2f82j%2b732iNg&pid=ImgRaw&r=0',
 				wordlink: `https://www.merriam-webster.com/dictionary/${wordsearch}`
 			},
 			{
 				name: 'Collins',
-				imageurl: 'https://th.bing.com/th/id/R.4b6538cbae2736939980764d3ead4815?rik=nbJverqn8NEXmQ&pid=ImgRaw&r=0',
+				imageurl:
+					'https://th.bing.com/th/id/R.4b6538cbae2736939980764d3ead4815?rik=nbJverqn8NEXmQ&pid=ImgRaw&r=0',
 				wordlink: `https://www.collinsdictionary.com/dictionary/english/${wordsearch}`
 			},
 			{
 				name: 'Wikipedia',
-				imageurl: 'https://th.bing.com/th/id/R.e156c235334d36c76030c3724a3a091e?rik=z2fOIIhlHdNnlA&pid=ImgRaw&r=0',
+				imageurl:
+					'https://th.bing.com/th/id/R.e156c235334d36c76030c3724a3a091e?rik=z2fOIIhlHdNnlA&pid=ImgRaw&r=0',
 				wordlink: `https://en.wikipedia.org/wiki/${wordsearch}`
 			},
 			{
 				name: 'Dictionary',
-				imageurl: 'https://www.dictionary.com/e/wp-content/uploads/2016/09/20200825_genericImage_Dcom_800x800-500x500.png',
+				imageurl:
+					'https://www.dictionary.com/e/wp-content/uploads/2016/09/20200825_genericImage_Dcom_800x800-500x500.png',
 				wordlink: `https://www.dictionary.com/browse/${wordsearch}`
 			},
 			{
@@ -63,11 +77,16 @@
 	<!-- * top container -->
 	{#if data}
 		<div class="flex md:items-baseline p-10 flex-col">
-			<!-- align to left -->
 			<h1 class="text-5xl font-bold">
-				{wordefine} <em class="font-normal text-base text-blue-600">{phonetic.text}</em>
+				{wordefine}
 			</h1>
-
+			<div class="flex flex-row items-baseline">
+				<button
+					on:click={playaudio}
+				>
+					<img src={AudioIcon} alt="Audioicon" class="h-7 w-7"/>
+				</button> <em class="font-normal text-base text-blue-600 mx-3 my-3">{phonetic.text}</em>
+			</div>
 			{#each data.meanings as meaning}
 				<div class="pt-5 flex flex-row justify-between">
 					<h1 class="font-bold md:text-2xl italic text-xl">{meaning.partOfSpeech}</h1>

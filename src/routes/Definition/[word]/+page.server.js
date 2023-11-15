@@ -1,6 +1,5 @@
 import { cleanarray, capturebestphonetics } from './funchelper.js';
 import { error } from '@sveltejs/kit';
-//import error from '../../+error.svelte'
 export async function load({ fetch, params }) {
 	let { word } = params;
 	try {
