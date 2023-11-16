@@ -2,9 +2,9 @@
 	import { Meaning } from '$lib';
 
 	export let data;
-	const phonetic = data?.phonetics;
-	const wordefine = data?.word;
-	const audioSource = data?.phonetics.audio;
+	$: phonetic = data?.phonetics;
+	$: wordefine = data?.word;
+	$: audioSource = data?.phonetics.audio;
 
 	const playaudio = () => {
 		if (audioSource) {
