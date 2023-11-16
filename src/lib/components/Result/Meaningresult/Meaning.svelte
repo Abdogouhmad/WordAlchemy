@@ -3,9 +3,9 @@
 	import { dictionaries } from '$lib/data';
 
 	export let data;
-	export const phonetic = data?.phonetics;
-	export const wordefine = data?.word;
-	export const audioSource = data?.phonetics.audio;
+	$: phonetic = data?.phonetics;
+	$: wordefine = data?.word;
+	$: audioSource = data?.phonetics.audio;
 
 	const playaudio = () => {
 		if (audioSource) {
