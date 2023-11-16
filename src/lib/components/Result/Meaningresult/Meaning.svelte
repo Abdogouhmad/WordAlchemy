@@ -1,6 +1,6 @@
 <script>
 	import AudioIcon from '$lib/assets/audio.svg';
-    import { dictionaries } from '$lib/data';
+	import { dictionaries } from '$lib/data';
 
 	export let data;
 	export const phonetic = data?.phonetics;
@@ -17,8 +17,8 @@
 	};
 
 	export let wordsearch = '';
-    export let pagetitle = '';
-    export let description = '';
+	export let pagetitle = '';
+	export let description = '';
 
 	$: {
 		wordsearch = wordefine;
@@ -26,7 +26,6 @@
 		description = `Definition page of ${wordsearch}`;
 	}
 </script>
-
 
 <div class=" font-light justify-center flex pt-5 text-justify text-sm">
 	<p>
@@ -43,10 +42,8 @@
 				{wordefine}
 			</h1>
 			<div class="flex flex-row items-baseline">
-				<button
-					on:click={playaudio}
-				>
-					<img src={AudioIcon} alt="Audioicon" class="h-7 w-7"/>
+				<button on:click={playaudio}>
+					<img src={AudioIcon} alt="Audioicon" class="h-7 w-7" />
 				</button> <em class="font-normal text-base text-blue-600 mx-3 my-3">{phonetic.text}</em>
 			</div>
 			{#each data.meanings as meaning}
