@@ -1,11 +1,11 @@
-<script lang="ts">
+<script>
 	export let open = false;
-	export let onClick = (): void => {
+	export let onClick = () => {
 		open = !open;
 	};
 
 	export let ariaLabel = 'toggle menu';
-	export let width: string | number = 80;
+	export let width = 80;
 </script>
 
 <button on:click={onClick} aria-expanded={open} aria-label={ariaLabel}>

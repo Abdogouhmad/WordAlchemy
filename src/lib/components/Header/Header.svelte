@@ -2,16 +2,16 @@
 	import Icon from '$lib/assets/Icon.svg';
 	//import Mobilebar from './Mobileheader.svelte';
 	import Toggletheme from './Theme/selectheme.svelte';
-	// export const route = [
-	// 	{
-	// 		name: 'IPA',
-	// 		herf: '/Ipa'
-	// 	},
-	// 	{
-	// 		name: 'Contact',
-	// 		herf: '/Contact'
-	// 	}
-	// ];
+	export const route = [
+		{
+			name: 'IPA',
+			herf: '/Ipa'
+		},
+		{
+			name: 'Contact',
+			herf: '/Contact'
+		}
+	];
 </script>
 
 <nav class="border-b-[1px]">
