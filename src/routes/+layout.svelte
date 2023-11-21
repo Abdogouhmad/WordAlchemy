@@ -1,12 +1,13 @@
 <script>
 	/** @type {import('./$types').LayoutData} */
+	import '../app.css';
 	import { dev } from '$app/environment';
 	import { inject } from '@vercel/analytics';
-
-	import '../app.css';
 	import { Navbar } from '$lib';
 	import { DEngine } from '$lib';
+	import { Authclient } from '$lib/supabase';
 
+	console.log('Ur client:', Authclient ? 'no client' : 'no client');
 	inject({ mode: dev ? 'development' : 'production' });
 </script>
 
