@@ -41,8 +41,8 @@
 			<h1 class="text-5xl font-bold">
 				{wordefine}
 			</h1>
-			<div class="flex flex-row items-baseline">
-				<button on:click={playaudio}>
+			<div class="flex flex-row ">
+				<button on:click={playaudio} >
 					<img src={AudioIcon} alt="Audioicon" class="h-7 w-7" />
 				</button> <em class="font-normal text-base text-blue-600 mx-3 my-3">{phonetic.text}</em>
 			</div>
@@ -65,6 +65,17 @@
 							</li>
 						{/each}
 					</ul>
+					<!-- ! Synonyms -->
+					<div class="flex flex-row pt-5 space-x-3">
+						{#if meaning.synonyms}
+							<h2 class="text-base text-gray-400 font-semibold">Synonyms</h2>
+							<span class="text-base font-medium text-blue-700">{meaning.synonyms}</span>
+						{/if}
+						{#if meaning.antonyms}
+							<h2 class="text-base text-gray-400 font-semibold">Antonyms</h2>
+							<span class="text-base font-medium text-blue-700">{meaning.antonyms}</span>
+						{/if}
+					</div>
 				</div>
 			{/each}
 			<!-- sources -->

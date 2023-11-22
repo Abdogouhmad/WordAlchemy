@@ -8,7 +8,6 @@ export const cleanarray = (array) => {
 	const cleardata = JSON.parse(
 		JSON.stringify(array, (key, value) => {
 			if (Array.isArray(value) && value.length === 0) {
-				console.log('array cleaned');
 				return undefined;
 			}
 			return value;
