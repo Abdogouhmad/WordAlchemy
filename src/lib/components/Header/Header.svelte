@@ -14,7 +14,7 @@
 	];
 </script>
 
-<nav class="border-b-[1px]">
+<nav class="border-b-[1px] border-blue-600/25 dark:border-b-0">
 	<div class="max-w-screen-xl flex  justify-between mx-auto p-3">
 		<a href="/" class="flex items-start justify-start">
 			<img src={Icon} class="h-7 w-7 mr" alt="WordAlchemy Logo" />

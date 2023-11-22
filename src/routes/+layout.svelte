@@ -5,9 +5,10 @@
 	import { inject } from '@vercel/analytics';
 	import { Navbar } from '$lib';
 	import { DEngine } from '$lib';
-	import { Authclient } from '$lib/supabase';
+	import supabase from './supabase';
 
-	console.log('Ur client:', Authclient ? 'no client' : 'no client');
+
+	console.log('Ur client:', supabase ? 'no client' : 'no client');
 	inject({ mode: dev ? 'development' : 'production' });
 </script>
 

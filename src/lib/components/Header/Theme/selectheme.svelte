@@ -29,7 +29,10 @@
 	}
 
 	.toggle label {
-		@apply inline-block cursor-pointer relative transition-all ease-in-out duration-300 w-12 h-6 rounded-3xl border border-solid border-gray-700 bg-yellow-100;
+		@apply inline-block cursor-pointer relative transition-all ease-in-out 
+		duration-300 w-12 h-6 rounded-3xl 
+		border border-solid 
+		border-blue-700 bg-yellow-100;
 	}
 
 	.toggle label::after {
@@ -38,10 +41,12 @@
 	}
 
 	.toggle input[type='checkbox']:checked ~ label {
-		@apply bg-gray-500;
+		@apply bg-gray-800 border border-white;
 	}
 
 	.toggle input[type='checkbox']:checked ~ label::after {
 		transform: translateX(24px);
 	}
 </style>
+
+<!-- bg-gray-500 -->
