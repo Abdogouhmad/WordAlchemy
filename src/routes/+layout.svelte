@@ -5,8 +5,7 @@
 	import { inject } from '@vercel/analytics';
 	import { Navbar } from '$lib';
 	import { DEngine } from '$lib';
-	import supabase from './supabase';
-
+	import { supabase } from './supabase';
 
 	console.log('Ur client:', supabase ? 'no client' : 'no client');
 	inject({ mode: dev ? 'development' : 'production' });
