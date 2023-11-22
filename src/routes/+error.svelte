@@ -36,7 +36,7 @@
 				<span class="text-red-500">Oops!</span> Page {errorpage}
 			</h6>
 
-			<p class="mb-8 text-center text-black md:text-lg lg:text-3xl">
+			<p class="mb-8 text-center text-black md:text-lg lg:text-3xl dark:text-white">
 				The page you’re looking for doesn’t exist.
 			</p>
 
