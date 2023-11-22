@@ -41,8 +41,8 @@
 			<h1 class="text-5xl font-bold">
 				{wordefine}
 			</h1>
-			<div class="flex flex-row ">
-				<button on:click={playaudio} >
+			<div class="flex flex-row">
+				<button on:click={playaudio}>
 					<img src={AudioIcon} alt="Audioicon" class="h-7 w-7" />
 				</button> <em class="font-normal text-base text-blue-600 mx-3 my-3">{phonetic.text}</em>
 			</div>
@@ -53,12 +53,14 @@
 				</div>
 				<div>
 					<h2 class="md:text-2xl pt-4 text-base font-semibold italic">Meaning</h2>
-					<ul class="pt-5 text-sm md:text-base font-medium list-disc list-inside">
+					<ul
+						class="pt-5 text-sm md:text-base marker:text-blue-600 font-medium list-disc list-outside"
+					>
 						{#each meaning.definitions as def}
 							<li class="text-base my-2 text-start leading-relaxed">
 								{def.definition}
 								{#if def.example}
-									<p class="block text-base text-blue-700 dark:text-blue-600/60 italic pt-3">
+									<p class="text-base text-blue-800/90 dark:text-gray-500 italic pt-3">
 										{def.example}
 									</p>
 								{/if}
