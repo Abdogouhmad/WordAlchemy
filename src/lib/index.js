@@ -7,4 +7,6 @@ export { default as Catlookup } from './components/UI/cat.json';
 export { default as Caterror } from './components/UI/error404.json';
 export { default as Meaning } from './components/Result/Meaningresult/Meaning.svelte';
 export { default as Table } from './components/Body/tableipa.svelte';
-export { default as Loginform} from './components/forms/logingform.svelte';
+export { default as Loginform } from './components/forms/logingform.svelte';
+export { default as Registerform } from './components/forms/registerform.svelte';
+export { default as Logoutform } from './components/forms/logoutform.svelte';

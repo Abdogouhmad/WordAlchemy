@@ -36,4 +36,5 @@
 		WordAlchemy: Your ad-free dictionary web app. Explore words without interruptions, all for free
 	</p>
 	<a href="/auth/login" class="pt-5 text-blue-800">Login</a>
+	<a href="/auth/register" class="pt-5 text-blue-800">Sing up</a>
 </section>
