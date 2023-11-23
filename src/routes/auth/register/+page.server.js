@@ -11,7 +11,7 @@ export const actions = {
 			email,
 			password,
 			options: {
-				emailRedirectTo: `http://localhost:5173/auth/callback`
+				emailRedirectTo: `https://word-alchemy-git-login-div-styl.vercel.app/auth/callback`
 			}
 		});
 		console.log(email, password)
