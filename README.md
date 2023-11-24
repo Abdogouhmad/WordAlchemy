@@ -7,11 +7,9 @@ It is a Dictionary app that mixes IPA (_International Phonetic Alphabet_) and wo
 
 # Languages are available
 
-| Language | Status |
-| -------- | ------ |
-| English  |  [available](./src) |
-| Spanish  | SOON   |
-| French   | SOON   |
+| Language | Status             |
+| -------- | ------------------ |
+| English  | [available](./src) |
 
 # Note
 
