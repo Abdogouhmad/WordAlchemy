@@ -68,14 +68,14 @@
 						{/each}
 					</ul>
 					<!-- ! Synonyms -->
-					<div class="flex flex-row pt-5 space-x-3">
+					<div class="flex flex-row pt-5  space-x-3">
 						{#if meaning.synonyms}
 							<h2 class="text-base text-gray-400 font-semibold">Synonyms</h2>
-							<span class="text-base font-medium text-blue-700">{meaning.synonyms}</span>
+							<span class="text-base font-medium break-all  text-blue-700">{meaning.synonyms}</span>
 						{/if}
 						{#if meaning.antonyms}
 							<h2 class="text-base text-gray-400 font-semibold">Antonyms</h2>
-							<span class="text-base font-medium text-blue-700">{meaning.antonyms}</span>
+							<span class="text-base font-medium break-all  text-blue-700">{meaning.antonyms}</span>
 						{/if}
 					</div>
 				</div>

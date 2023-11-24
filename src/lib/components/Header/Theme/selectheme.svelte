@@ -12,7 +12,7 @@
 </script>
 
 {#if darkModeReady}
-	<div class="h-6 toggle" in:fade={{ duration: 800 }}>
+	<div class="h-6 toggle " in:fade={{ duration: 800 }}>
 		<input
 			type="checkbox"
 			id="toggle"

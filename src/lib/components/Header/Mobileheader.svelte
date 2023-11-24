@@ -1,61 +1,63 @@
 <script>
-	// const route = [
-	// 	{
-	// 		name: 'IPA',
-	// 		href: '/Ipa'
-	// 	},
-	// 	{
-	// 		name: 'Wordlists',
-	// 		href: '/Wordlists'
-	// 	},
-	// 	{
-	// 		name: 'Contact',
-	// 		href: '/Contact'
-	// 	}
-	// ];
+	import { Hum } from '$lib';
+	import Icon from '$lib/assets/Icon.svg';
 
 	let isNavOpen = false;
 
 	const toggleNavBar = () => {
 		isNavOpen = !isNavOpen;
-		console.log(isNavOpen);
 	};
+
+	const closeNavBar = () => {
+		isNavOpen = false;
+	};
+
+	export const route = [
+		{
+			name: 'Home',
+			href: '/'
+		},
+		{
+			name: 'Login',
+			href: '/auth/login'
+		},
+		{
+			name: 'Sign Up',
+			href: '/auth/register'
+		},
+		{
+			name: 'Profile',
+			href: '/auth/callback'
+		}
+	];
 </script>
 
-<button
-	on:click={toggleNavBar}
-	type="button"
-	class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-	aria-controls="navbar-default"
-	aria-expanded={isNavOpen}
->
-	<svg
-		class="w-5 h-5"
-		aria-hidden="true"
-		xmlns="http://www.w3.org/2000/svg"
-		fill="none"
-		viewBox="0 0 17 14"
-	>
-		<path
-			stroke="currentColor"
-			stroke-linecap="round"
-			stroke-linejoin="round"
-			stroke-width="2"
-			d="M1 1h15M1 7h15M1 13h15"
-		/>
-	</svg>
-</button>
+<div class="flex items-center justify-between md:hidden p-3">
+	<a href="/" class="flex items-start justify-start">
+		<img src={Icon} class="h-7 w-7" alt="WordAlchemy Logo" />
+		<span class="text-2xl font-semibold mx-2">WordAlchemy</span>
+	</a>
+	<button on:click={toggleNavBar} class="flex flex-col justify-between items-center md:hidden">
+		<Hum open={isNavOpen} />
+	</button>
 
-<!-- <div
-	class:open={isNavOpen}
-	class="transitio ${isNavOpen ? 'translate-x-0' : '-translate-x-full'}"
-	id="navbar-default"
->
-	{#each route as { name, href }}
-		<a
-			{href}
-			class="block py-2 pl-3 pr-4 text-3xl text-black hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
-			>{name}</a
-		>
-	{/each}
-</div> -->
+	<div
+		class={`bg-gray-900 transition-transform ${
+			isNavOpen ? 'translate-x-0' : '-translate-x-full'
+		} fixed w-screen h-screen top-0 left-0 flex flex-col justify-center items-center md:hidden z-[999]`}
+	>
+		<ul class="text-2xl flex flex-col space-y-5 font-medium">
+			{#each route as item}
+				<li>
+					<a
+						href={item.href}
+						on:click={closeNavBar}
+						class="text-white hover:text-blue-600 hover:underline"
+					>
+						{item.name}
+					</a>
+				</li>
+			{/each}
+		</ul>
+	</div>
+</div>

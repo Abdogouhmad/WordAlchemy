@@ -1,37 +1,45 @@
 <script>
 	import Icon from '$lib/assets/Icon.svg';
-	//import Mobilebar from './Mobileheader.svelte';
+	import Mobileheader from './Mobileheader.svelte';
 	import Toggletheme from './Theme/selectheme.svelte';
+
 	export const route = [
 		{
-			name: 'IPA',
-			herf: '/Ipa'
+			name: 'Login',
+			href: '/auth/login'
 		},
 		{
-			name: 'Contact',
-			herf: '/Contact'
+			name: 'Sign Up',
+			href: '/auth/register'
+		},
+		{
+			name: 'Profile',
+			href: '/auth/callback'
 		}
 	];
 </script>
 
-<nav class="border-b-[1px] border-blue-600/25 dark:border-b-0">
-	<div class="max-w-screen-xl flex  justify-between mx-auto p-3">
+<nav class="md:border-b-[1px] md:border-blue-600/25 md:dark:border-b-0">
+	<div class="hidden sm:flex max-w-screen-xl justify-between mx-auto p-3">
 		<a href="/" class="flex items-start justify-start">
-			<img src={Icon} class="h-7 w-7 mr" alt="WordAlchemy Logo" />
-			<span class="text-2xl font-semibold">WordAlchemy</span>
+			<img src={Icon} class="h-7 w-7" alt="WordAlchemy Logo" />
+			<span class="text-2xl font-semibold mx-2">WordAlchemy</span>
 		</a>
-		<!-- <div class="hidden md:flex">
-			<ul class=" text-2xl flex  space-x-5 flex-row font-medium">
+
+		<div class="flex">
+			<ul class="text-2xl flex space-x-5 flex-row font-medium">
 				{#each route as item}
 					<li>
-						<a href={item.herf} class="hover:text-blue-600 hover:underline">
+						<a href={item.href} class="hover:text-blue-600 hover:underline">
 							{item.name}
 						</a>
 					</li>
 				{/each}
 			</ul>
-		</div> -->
-		<Toggletheme  />
+
+			<Toggletheme />
+		</div>
 	</div>
-	
+	<Mobileheader />
+
 </nav>
