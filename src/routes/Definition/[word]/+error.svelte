@@ -37,11 +37,11 @@
 		<!-- <h1 class="font-bold text-6xl text-blue-500 lg:text-8xl">{$page.status}</h1> -->
 		<div bind:this={lottieElement} class="md:h-[30vh] h-[200px] lg:h-[67vh]" />
 
-		<h6 class="mb-2 text-2xl font-bold text-center text-black md:text-4xl lg:text-6xl">
+		<h6 class="mb-2 text-2xl font-bold text-center md:text-4xl lg:text-6xl">
 			<span class="text-red-500">Oops!</span> Definition {errorpage}
 		</h6>
 
-		<p class="mb-8 text-center text-black md:text-lg lg:text-3xl">
+		<p class="mb-8 text-center  md:text-lg lg:text-3xl">
 			The word you’re looking for doesn’t exist in my dictionary yet.
 		</p>
 		<a

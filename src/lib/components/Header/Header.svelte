@@ -35,11 +35,13 @@
 						</a>
 					</li>
 				{/each}
+				
 			</ul>
-
-			<Toggletheme />
+			<div class="flex pt-2 pl-10">
+				<Toggletheme />
+			</div>
 		</div>
+		
 	</div>
 	<Mobileheader />
-
 </nav>
