@@ -2,8 +2,11 @@
 	import { Hum } from '$lib';
 	import Icon from '$lib/assets/Icon.svg';
 	import Toggletheme from './Theme/selectheme.svelte';
+	import Cbutton from './navbutton.svelte';
+	import { Logoutform } from '$lib';
 
 	let isNavOpen = false;
+	export let data;
 
 	const toggleNavBar = () => {
 		isNavOpen = !isNavOpen;
@@ -12,25 +15,6 @@
 	const closeNavBar = () => {
 		isNavOpen = false;
 	};
-
-	export const route = [
-		{
-			name: 'Home',
-			href: '/'
-		},
-		{
-			name: 'Login',
-			href: '/auth/login'
-		},
-		{
-			name: 'Sign Up',
-			href: '/auth/register'
-		},
-		{
-			name: 'Profile',
-			href: '/auth/callback'
-		}
-	];
 </script>
 
 <div class="flex items-center justify-between md:hidden p-3">
@@ -48,7 +32,27 @@
 		} fixed w-screen h-screen top-0 left-0 flex flex-col justify-center items-center md:hidden z-[999]`}
 	>
 		<ul class="text-2xl flex flex-col space-y-5 font-medium">
-			{#each route as item}
+			{#if data.session}
+				<a href="/" class="hover:text-blue-600 hover:underline pt-1 font-bold text-2xl">Home</a>
+				<a href="/auth/callback" class="hover:text-blue-600 hover:underline pt-1 font-bold text-2xl"
+					>Profile</a
+				>
+				<Logoutform />
+			{:else}
+				<a href="/" class="hover:text-blue-600 hover:underline pt-1 font-bold text-2xl">Home</a>
+				<a href="/auth/callback" class="hover:text-blue-600 hover:underline pt-1 font-bold text-2xl"
+					>Profile</a
+				>
+				<Cbutton />
+			{/if}
+		</ul>
+		<div class="pt-3">
+			<Toggletheme />
+		</div>
+	</div>
+</div>
+
+<!-- {#each route as item}
 				<li>
 					<a
 						href={item.href}
@@ -57,12 +61,6 @@
 					>
 						{item.name}
 					</a>
-				</li>
-			{/each}
-		</ul>
-		<div class="pt-3">
-			<Toggletheme />
-		</div>
-	</div>
 
-</div>
+				</li>
+{/each} -->

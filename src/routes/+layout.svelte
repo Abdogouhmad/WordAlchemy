@@ -29,7 +29,7 @@
 </script>
 
 <header>
-	<Navbar />
+	<Navbar {data} />
 </header>
 
 <section class="flex justify-center pt-10">
