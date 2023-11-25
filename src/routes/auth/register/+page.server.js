@@ -2,7 +2,7 @@
 import { fail } from '@sveltejs/kit';
 
 export const actions = {
-	default: async ({ request, url, locals: { supabase } }) => {
+	default: async ({ request, locals: { supabase } }) => {
 		const formData = await request.formData();
 		const email = formData.get('email');
 		const password = formData.get('password');
@@ -14,8 +14,7 @@ export const actions = {
 				emailRedirectTo: `https://word-alchemy-git-login-div-styl.vercel.app/auth/callback`
 			}
 		});
-		console.log(email, password)
-		// console.log(url.origin);
+
 
 		if (error) {
 			return fail(500, { message: 'Server error. Try again later.', success: false, email });
