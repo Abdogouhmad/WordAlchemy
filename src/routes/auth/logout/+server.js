@@ -1,4 +1,3 @@
-/** @type {import('./$types').RequestHandler} */
 import { error, redirect } from '@sveltejs/kit';
 
 export const POST = async ({ locals }) => {
@@ -9,7 +8,8 @@ export const POST = async ({ locals }) => {
         throw error(500, {
             message: 'Server error. Try again later.'
         });
+    } else {
+        console.log('Sign out successful');
+        throw redirect(302, '/auth/login');
     }
-
-    throw redirect(303, '/');
 };
