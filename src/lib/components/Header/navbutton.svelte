@@ -1,4 +1,9 @@
 <script>
+	export let isNavOpen = false;
+	export const closeNavBar = () => {
+		isNavOpen = false;
+		console.log('fromnavbutton: ', isNavOpen);
+	};
 	export const route = [
 		{
 			name: 'Log in',
@@ -12,7 +17,7 @@
 </script>
 
 {#each route as { name, href }}
-	<button
+	<button on:click={closeNavBar}
 		class="dark:bg-blue-500/30 bg-blue-500/60 hover:bg-blue-700 dark:hover:bg-blue-700 text-base font-bold py-2 px-2 rounded"
 	>
 		<a {href}>{name}</a>
