@@ -1,5 +1,6 @@
 <script>
 	import { Meaning } from '$lib';
+	import { Footer } from '$lib';
 
 	export let data;
 	$: phonetic = data?.phonetics;
@@ -32,3 +33,5 @@
 </svelte:head>
 
 <Meaning {wordsearch} {phonetic} {audioSource} on:playaudio={playaudio} {data} />
+
+<Footer />
