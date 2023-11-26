@@ -11,3 +11,4 @@ export { default as Loginform } from './components/forms/logingform.svelte';
 export { default as Registerform } from './components/forms/registerform.svelte';
 export { default as Logoutform } from './components/forms/logoutform.svelte';
 export { default as Hum } from './components/UI/humberger.svelte';
+export { default as Resetpassword } from './components/forms/resetpassword.svelte';

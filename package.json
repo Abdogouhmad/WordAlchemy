@@ -38,6 +38,7 @@
 	"dependencies": {
 		"@supabase/auth-helpers-sveltekit": "^0.10.7",
 		"@supabase/supabase-js": "^2.38.5",
+		"@supabase/ui": "^0.36.5",
 		"@vercel/analytics": "^1.1.1",
 		"flowbite": "^2.2.0",
 		"flowbite-svelte": "^0.44.19",
