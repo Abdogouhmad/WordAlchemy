@@ -5,6 +5,7 @@
 	import { inject } from '@vercel/analytics';
 	import { Navbar } from '$lib';
 	import { DEngine } from '$lib';
+	import { Footer } from '$lib';
 	import { invalidate } from '$app/navigation';
 	import { onMount } from 'svelte';
 
@@ -35,4 +36,5 @@
 <section class="flex justify-center pt-10">
 	<DEngine />
 </section>
+
 <slot />

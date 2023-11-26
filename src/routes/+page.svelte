@@ -1,6 +1,7 @@
 <script>
 	import { onMount } from 'svelte';
 	import { Catlookup } from '$lib';
+	import { Footer } from '$lib';
 	let pageTitle = 'WordAlchemy';
 	let pageDescription = 'Welcome to WordAlchemy';
 
@@ -35,5 +36,6 @@
 	<p class="md:text-3xl text-base font-light p-3 pt-3 text-center">
 		WordAlchemy: Your ad-free dictionary web app. Explore words without interruptions, all for free
 	</p>
-
 </section>
+
+<Footer />

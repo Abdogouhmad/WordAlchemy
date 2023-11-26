@@ -77,16 +77,3 @@
 		</div>
 	</div>
 </div>
-
-<!-- {#each route as item}
-				<li>
-					<a
-						href={item.href}
-						on:click={closeNavBar}
-						class=" text-lg hover:text-blue-600 hover:underline"
-					>
-						{item.name}
-					</a>
-
-				</li>
-{/each} -->
