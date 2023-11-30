@@ -9,9 +9,6 @@
 </footer>
 
 <style lang="postcss">
-	body {
-		@apply min-h-screen flex flex-col;
-	}
 	.contain {
 		@apply flex justify-center md:justify-start md:p-2;
 	}

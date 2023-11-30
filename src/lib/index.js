@@ -12,4 +12,5 @@ export { default as Registerform } from './components/forms/registerform.svelte'
 export { default as Logoutform } from './components/forms/logoutform.svelte';
 export { default as Hum } from './components/UI/humberger.svelte';
 export { default as Resetpassword } from './components/forms/resetpassword.svelte';
+export { default as UpdateUser } from './components/forms/updateuser.svelte';
 export { default as Footer } from './components/Footer/Footer.svelte';

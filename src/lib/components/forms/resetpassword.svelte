@@ -1,6 +1,23 @@
 <script>
 	import { enhance } from '$app/forms';
 	export let form;
+	import Checkform  from './checkform.svelte';
+	let isFormSubmitted = false;
+	let isFormSuccess = true;
+	const resetpassword = async () => {
+		try {
+			const response = await fetch('/auth/reset');
+			if (response.ok) {
+				isFormSuccess = true;
+				isFormSubmitted = true;
+			} else {
+				isFormSuccess = false;
+				isFormSubmitted = true;
+			}
+		} catch (error) {
+			console.error('Error:', error);
+		}
+	};
 </script>
 
 <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
@@ -15,7 +32,12 @@
 		>
 			Change Password
 		</h2>
-		<form class="mt-4 space-y-4 lg:mt-5 md:space-y-5" use:enhance method="post">
+		<form
+			class="mt-4 space-y-4 lg:mt-5 md:space-y-5"
+			use:enhance
+			method="post"
+			on:submit|preventDefault={resetpassword}
+		>
 			<div>
 				<label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
 					>Your email</label
@@ -30,31 +52,12 @@
 					required
 				/>
 			</div>
-
-			<div class="flex items-start">
-				<div class="flex items-center h-5">
-					<input
-						id="newsletter"
-						aria-describedby="newsletter"
-						type="checkbox"
-						class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800"
-						required
-					/>
-				</div>
-				<div class="ml-3 text-sm">
-					<label for="newsletter" class="font-light text-gray-500 dark:text-gray-300"
-						>I accept the <a
-							class="font-medium text-blue-600 hover:underline dark:text-blue-500"
-							href="/">Terms and Conditions</a
-						></label
-					>
-				</div>
-			</div>
 			<button
 				type="submit"
 				class="w-full text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
 				>Reset passwod</button
 			>
+			<Checkform {isFormSubmitted} {isFormSuccess} />
 		</form>
 	</div>
 </div>

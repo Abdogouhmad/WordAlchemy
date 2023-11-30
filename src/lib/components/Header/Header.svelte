@@ -23,10 +23,6 @@
 					>
 					<Logoutform />
 				{:else}
-					<a
-						href="/auth/callback"
-						class="hover:text-blue-600 hover:underline pt-1 font-bold text-2xl">Profile</a
-					>
 					<Cbutton />
 				{/if}
 			</ul>
