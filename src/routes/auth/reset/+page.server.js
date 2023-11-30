@@ -7,7 +7,11 @@ export const actions = {
 		const email = formData.get('email');
 		console.log(email);
 		try {
-			const { error } = await supabase.auth.resetPasswordForEmail(email);
+			const { error } = await supabase.auth.resetPasswordForEmail({
+				email,
+				options: {
+					emailRedirectTo: `https://word-alchemy-git-login-div-styl.vercel.app/auth/update`
+				}});
 			if (error) {
 				return fail(500, {
 					message: 'Server error. Try again later.',
