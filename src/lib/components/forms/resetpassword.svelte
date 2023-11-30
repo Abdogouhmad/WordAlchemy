@@ -8,6 +8,7 @@
 		try {
 			const response = await fetch('/auth/reset');
 			if (response.ok) {
+				console.log('check your email');
 				isFormSuccess = true;
 				isFormSubmitted = true;
 			} else {
