@@ -39,6 +39,13 @@ async function authorization({ event, resolve }) {
 			console.log('Not signed in');
 			throw redirect(303, '/');
 		}
+	} else if (event.url.pathname.startsWith('/auth/update')) {
+		const session = await event.locals.getSession();
+		if (!session) {
+			// the user is not signed in
+			console.log('not signed in');
+			throw redirect(303, '/');
+		}
 	}
 
 	return resolve(event);
