@@ -1,27 +1,32 @@
 <script>
 	import Checkform from './checkform.svelte';
+	import { supabaseClient as supabase } from '$lib/supabaseclinet';
 
 	export let done = 'Password Updated';
 	export let isFormSubmitted = false;
-	export let isFormSuccess = true; 
+	export let isFormSuccess = true;
 
 	export let form;
 	let password = '';
 	let confirm_password = '';
 	let fail = '';
 
-	const submit = async () => {
-		const res = await fetch('/auth/update');
-		if (res.ok) {
-			console.log('password updated');
-			isFormSuccess = true;
-			isFormSubmitted = true;
+	const submit = async (event) => {
+		event.preventDefault();
+
+		if (password !== confirm_password) {
+			fail = 'Passwords do not match';
+			return;
+		}
+
+		const { error } = await supabase.auth.updateUser({password});
+
+		if (error) {
+			console.error(error);
+
+			fail = error.message;
 		} else {
-			isFormSuccess = false;
-			isFormSubmitted = true;
-			if (password !== confirm_password) {
-				fail = 'passwords do not match';
-			}
+			console.log('Password updated successfully');
 		}
 	};
 </script>
@@ -94,7 +99,7 @@
                     font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700
                     dark:focus:ring-blue-800">Reset Password</button
 				>
-				<Checkform {isFormSubmitted} {isFormSuccess} {done}  />
+				<Checkform {isFormSubmitted} {isFormSuccess} {done} />
 			</form>
 		</div>
 	</div>
