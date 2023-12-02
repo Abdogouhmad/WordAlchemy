@@ -1,27 +1,27 @@
 <script>
-	import { enhance } from '$app/forms';
-	import { onMount } from 'svelte';
+	import Checkform from './checkform.svelte';
 
-	let form;
-	let password;
-	let confirm_password;
+	export let done = 'Password Updated';
+	export let isFormSubmitted = false;
+	export let isFormSuccess = true; 
 
-	onMount(() => {
-		// Accessing DOM elements after the component has mounted
-		password = document.getElementById('password');
-		confirm_password = document.getElementById('confirm_password');
-	});
+	export let form;
+	let password = '';
+	let confirm_password = '';
+	let fail = '';
 
-	const confirmpassword = async () => {
-		try {
-			if (password && password.value !== confirm_password.value) {
-				confirm_password.closest('form').reportValidity();
-			} else {
-				// Your form submission logic goes here
-				const response = await fetch('/auth/update');
+	const submit = async () => {
+		const res = await fetch('/auth/update');
+		if (res.ok) {
+			console.log('password updated');
+			isFormSuccess = true;
+			isFormSubmitted = true;
+		} else {
+			isFormSuccess = false;
+			isFormSubmitted = true;
+			if (password !== confirm_password) {
+				fail = 'passwords do not match';
 			}
-		} catch (error) {
-			console.error(error);
 		}
 	};
 </script>
@@ -39,12 +39,7 @@
 			>
 				Reset Your Password
 			</h1>
-			<form
-				class="space-y-4 md:space-y-6"
-				method="post"
-				use:enhance
-				on:submit|preventDefault={confirmpassword}
-			>
+			<form class="space-y-4 md:space-y-6" method="post" on:submit|preventDefault={submit}>
 				<div>
 					<label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
 						>Your email</label
@@ -88,14 +83,18 @@
 						bind:value={confirm_password}
 						required
 					/>
+					{#if fail}
+						<p class="text-red-500">{fail}</p>
+					{/if}
 				</div>
 				<button
 					type="submit"
 					class="w-full text-white bg-blue-500 hover:bg-blue-700 focus:ring-4
                     focus:outline-none focus:ring-blue-300
                     font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700
-                    dark:focus:ring-blue-800">Log in</button
+                    dark:focus:ring-blue-800">Reset Password</button
 				>
+				<Checkform {isFormSubmitted} {isFormSuccess} {done}  />
 			</form>
 		</div>
 	</div>
