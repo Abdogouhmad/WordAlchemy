@@ -7,6 +7,7 @@
 	export let isFormSuccess = true;
 
 	export let form;
+	let email = '';
 	let password = '';
 	let confirm_password = '';
 	let fail = '';
@@ -19,11 +20,21 @@
 			return;
 		}
 
-		const { error } = await supabase.auth.updateUser({password});
+		// Ensure the user is logged in
+		const { user, session, error: sessionError } = supabase.auth.session();
+
+		if (sessionError || !session || !user) {
+			fail = 'Authentication session missing or expired.';
+			return;
+		}
+
+		const { error } = await supabase.auth.update(
+			{ password },
+			{ accessToken: session.access_token }
+		);
 
 		if (error) {
 			console.error(error);
-
 			fail = error.message;
 		} else {
 			console.log('Password updated successfully');
