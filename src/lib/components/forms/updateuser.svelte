@@ -1,43 +1,28 @@
 <script>
 	import Checkform from './checkform.svelte';
-	import { supabaseClient as supabase } from '$lib/supabaseclinet';
 
 	export let done = 'Password Updated';
+	export let wrong = 'Password is not Updated';
 	export let isFormSubmitted = false;
 	export let isFormSuccess = true;
 
 	export let form;
-	let email = '';
 	let password = '';
 	let confirm_password = '';
 	let fail = '';
 
-	const submit = async (event) => {
-		event.preventDefault();
-
+	const submit = async () => {
 		if (password !== confirm_password) {
-			fail = 'Passwords do not match';
-			return;
+			return (fail = 'passwords do not match');
 		}
-
-		// Ensure the user is logged in
-		const { user, session, error: sessionError } = supabase.auth.session();
-
-		if (sessionError || !session || !user) {
-			fail = 'Authentication session missing or expired.';
-			return;
-		}
-
-		const { error } = await supabase.auth.update(
-			{ password },
-			{ accessToken: session.access_token }
-		);
-
-		if (error) {
-			console.error(error);
-			fail = error.message;
+		const res = await fetch('/auth/update');
+		if (res.ok) {
+			console.log('password updated');
+			isFormSuccess = true;
+			isFormSubmitted = true;
 		} else {
-			console.log('Password updated successfully');
+			isFormSuccess = false;
+			isFormSubmitted = true;
 		}
 	};
 </script>
@@ -47,7 +32,8 @@
 		WordAlchemy
 	</a>
 	<div
-		class="w-full bg-white rounded-lg border hover:border-blue-300/50 shadow-xl shadow-blue-400/50 dark:border md:mt-0 sm:max-w-md dark:shadow xl:p-0 dark:bg-gray-900/60 dark:border-black"
+		class="w-full bg-white rounded-lg border hover:border-blue-300/50
+		shadow-xl shadow-blue-400/50 dark:border md:mt-0 sm:max-w-md dark:shadow-none xl:p-0 dark:bg-gray-900/60 dark:border-black"
 	>
 		<div class="p-6 space-y-4 md:space-y-6 sm:p-8">
 			<h1
@@ -100,7 +86,16 @@
 						required
 					/>
 					{#if fail}
-						<p class="text-red-500">{fail}</p>
+						<div class="pt-3">
+							<h1
+								class="
+						bg-red-300 text-red-500 p-2.5 justify-center
+						text-center w-full rounded-lg
+						"
+							>
+								{fail}
+							</h1>
+						</div>
 					{/if}
 				</div>
 				<button
@@ -110,7 +105,7 @@
                     font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700
                     dark:focus:ring-blue-800">Reset Password</button
 				>
-				<Checkform {isFormSubmitted} {isFormSuccess} {done} />
+				<Checkform {isFormSubmitted} {isFormSuccess} {done} {wrong} />
 			</form>
 		</div>
 	</div>

@@ -7,7 +7,7 @@
 			const data = await response.json();
 
 			if (response.ok) {
-				console.log('cool');
+				console.log('bye');
 			} else {
 				console.error(JSON.stringify(data.error));
 			}

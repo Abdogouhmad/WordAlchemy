@@ -1,7 +1,7 @@
 <script>
 	import { enhance } from '$app/forms';
 	export let form;
-	import Checkform  from './checkform.svelte';
+	import Checkform from './checkform.svelte';
 	let isFormSubmitted = false;
 	let isFormSuccess = true;
 	const resetpassword = async () => {

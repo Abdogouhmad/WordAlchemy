@@ -8,7 +8,7 @@ export const GET = async ({ url, locals: { supabase } }) => {
     await supabase.auth.exchangeCodeForSession(code)
   }
 
-  throw redirect(303, 'https://word-alchemy-git-login-div-styl.vercel.app/protected/Dashboard/')
+  throw redirect(303, 'http://localhost:5173/protected/Dashboard/')
 }
 // https://word-alchemy-git-login-div-styl.vercel.app/protected/Dashboard/
 // http://localhost:5173/protected/Dashboard/
