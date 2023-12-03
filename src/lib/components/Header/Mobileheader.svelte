@@ -2,7 +2,6 @@
 	import { Hum } from '$lib';
 	import Icon from '$lib/assets/Icon.svg';
 	import Toggletheme from './Theme/selectheme.svelte';
-	import Cbutton from './navbutton.svelte';
 	import { Logoutform } from '$lib';
 
 	export const route = [

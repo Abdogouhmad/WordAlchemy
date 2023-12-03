@@ -34,4 +34,3 @@
 
 <Meaning {wordsearch} {phonetic} {audioSource} on:playaudio={playaudio} {data} />
 
-<Footer />

@@ -32,16 +32,12 @@
 </svelte:head>
 
 <section class="flex flex-col justify-center items-center">
-	<div bind:this={lottieElement} class="md:h-[30vh] h-[200px] lg:h-[67vh]" />
-	<h1 class="md:text-5xl text-2xl pt-5 font-normal">WordAlchemy</h1>
+	<div bind:this={lottieElement} class="md:h-[40vh] h-[300px] lg:h-[67vh]" />
 
 	<!-- the search componante -->
 	<section class="flex justify-center pt-10">
 		<DEngine />
-	</section> 	
-	<!-- <p class="md:text-3xl text-base font-light p-3 pt-3 text-center">
-		WordAlchemy: Your ad-free dictionary web app. Explore words without interruptions, all for free
-	</p> -->
+	</section>
 </section>
 
 
