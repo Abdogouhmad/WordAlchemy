@@ -1,8 +1,18 @@
 <script>
 	import { enhance } from '$app/forms';
 
-	
+	let fail = '';
 	export let form;
+
+	const send = async () => {
+		const res = await fetch('/auth/login');
+		if (res.ok) {
+			console.log('logged in');
+		} else {
+			console.log('not logged in');
+			fail = 'Login Failed';
+		}
+	};
 </script>
 
 <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
@@ -18,7 +28,12 @@
 			>
 				Log in into your account
 			</h1>
-			<form class="space-y-4 md:space-y-6" method="post" use:enhance>
+			<form
+				class="space-y-4 md:space-y-6"
+				method="post"
+				use:enhance
+				on:submit|preventDefault={send}
+			>
 				<div>
 					<label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
 						>Your email</label
@@ -68,6 +83,18 @@
 						>Forgot password?</a
 					>
 				</div>
+				{#if fail}
+					<div class="pt-3">
+						<h1
+							class="
+				bg-red-300 text-red-500 p-2.5 justify-center
+				text-center w-full rounded-lg
+				"
+						>
+							{fail}
+						</h1>
+					</div>
+				{/if}
 				<button
 					type="submit"
 					class="w-full text-white bg-blue-500 hover:bg-blue-700 focus:ring-4

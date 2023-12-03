@@ -1,4 +1,6 @@
 <script>
+	import { enhance } from '$app/forms';
+
 	import Checkform from './checkform.svelte';
 
 	export let done = 'Password Updated';
@@ -13,7 +15,7 @@
 
 	const submit = async () => {
 		if (password !== confirm_password) {
-			return (fail = 'passwords do not match');
+			return (fail = 'Passwords do not match');
 		}
 		const res = await fetch('/auth/update');
 		if (res.ok) {
@@ -41,7 +43,12 @@
 			>
 				Reset Your Password
 			</h1>
-			<form class="space-y-4 md:space-y-6" method="post" on:submit|preventDefault={submit}>
+			<form
+				class="space-y-4 md:space-y-6"
+				method="post"
+				use:enhance
+				on:submit|preventDefault={submit}
+			>
 				<div>
 					<label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
 						>Your email</label
