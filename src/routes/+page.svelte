@@ -1,4 +1,5 @@
 <script>
+	import { DEngine } from '$lib';
 	import { onMount } from 'svelte';
 	import { Catlookup } from '$lib';
 	import { Footer } from '$lib';
@@ -32,10 +33,15 @@
 
 <section class="flex flex-col justify-center items-center">
 	<div bind:this={lottieElement} class="md:h-[30vh] h-[200px] lg:h-[67vh]" />
-	<h1 class="md:text-5xl text-2xl pt-5 font-mono">Welcome to WordAlchemy</h1>
-	<p class="md:text-3xl text-base font-light p-3 pt-3 text-center">
+	<h1 class="md:text-5xl text-2xl pt-5 font-normal">WordAlchemy</h1>
+
+	<!-- the search componante -->
+	<section class="flex justify-center pt-10">
+		<DEngine />
+	</section> 	
+	<!-- <p class="md:text-3xl text-base font-light p-3 pt-3 text-center">
 		WordAlchemy: Your ad-free dictionary web app. Explore words without interruptions, all for free
-	</p>
+	</p> -->
 </section>
 
-<Footer />
+

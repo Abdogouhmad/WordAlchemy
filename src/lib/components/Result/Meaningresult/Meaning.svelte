@@ -1,4 +1,5 @@
 <script>
+	import { DEngine } from '$lib';
 	import AudioIcon from '$lib/assets/audio.svg';
 	import { dictionaries } from '$lib/data';
 
@@ -26,6 +27,11 @@
 		description = `Definition page of ${wordsearch}`;
 	}
 </script>
+
+<section class="flex justify-center pt-10">
+	<DEngine />
+</section>
+
 
 <div class=" font-light justify-center flex pt-5 text-justify text-sm">
 	<p>
@@ -68,14 +74,14 @@
 						{/each}
 					</ul>
 					<!-- ! Synonyms -->
-					<div class="flex flex-row pt-5  space-x-3">
+					<div class="flex flex-row pt-5 space-x-3">
 						{#if meaning.synonyms}
 							<h2 class="text-base text-gray-400 font-semibold">Synonyms</h2>
-							<span class="text-base font-medium break-all  text-blue-700">{meaning.synonyms}</span>
+							<span class="text-base font-medium break-all text-blue-700">{meaning.synonyms}</span>
 						{/if}
 						{#if meaning.antonyms}
 							<h2 class="text-base text-gray-400 font-semibold">Antonyms</h2>
-							<span class="text-base font-medium break-all  text-blue-700">{meaning.antonyms}</span>
+							<span class="text-base font-medium break-all text-blue-700">{meaning.antonyms}</span>
 						{/if}
 					</div>
 				</div>
