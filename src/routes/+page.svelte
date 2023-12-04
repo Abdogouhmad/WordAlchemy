@@ -1,6 +1,6 @@
 <script>
 	import { onMount } from 'svelte';
-	import { Catlookup } from '$lib';
+	import { Catlookup, DEngine } from '$lib';
 	let pageTitle = 'WordAlchemy';
 	let pageDescription = 'Welcome to WordAlchemy';
 
@@ -30,9 +30,13 @@
 </svelte:head>
 
 <section class="flex flex-col justify-center items-center">
+	<div class="flex h-40 items-end pt-10">
+		<DEngine />
+	</div>
+
 	<div bind:this={lottieElement} class="md:h-[30vh] h-[200px] lg:h-[67vh]" />
 	<h1 class="md:text-5xl text-2xl pt-5 font-mono">Welcome to WordAlchemy</h1>
-	<p class="md:text-3xl text-base font-light p-3 pt-3 text-center">
+	<!-- <p class="md:text-3xl text-base font-light p-3 pt-3 text-center">
 		WordAlchemy: Your ad-free dictionary web app. Explore words without interruptions, all for free
-	</p>
+	</p> -->
 </section>
