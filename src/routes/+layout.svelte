@@ -8,10 +8,12 @@
 	import { DEngine } from '$lib';
 
 	inject({ mode: dev ? 'development' : 'production' });
+
+	export let data;
 </script>
 
 <header>
-	<Navbar />
+	<Navbar user={data.user} />
 </header>
 
 <slot />
