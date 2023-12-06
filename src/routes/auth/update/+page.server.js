@@ -5,16 +5,16 @@ export const actions = {
 		const email = formData.get('email');
 		const new_password = formData.get('password');
 		const confirm_password = formData.get('confirm_password');
-		console.log(email, new_password);
-		console.log(confirm_password);
+
+		console.log(formData);
 
 		// Check if passwords match
-		if (new_password !== confirm_password) {
-			return fail(400, {
-				message: 'Passwords do not match',
-				success: false
-			});
-		}
+		// if (new_password !== confirm_password) {
+		// 	return fail(400, {
+		// 		message: 'Passwords do not match',
+		// 		success: false
+		// 	});
+		// }
 
 		// Update password
 		const { error } = await supabase.auth.updateUser({
