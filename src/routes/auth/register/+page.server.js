@@ -7,6 +7,7 @@ export const actions = {
 		const email = formData.get('email');
 		const password = formData.get('password');
 
+		console.log(formData);
 		const { error } = await supabase.auth.signUp({
 			email,
 			password,
@@ -14,12 +15,9 @@ export const actions = {
 				emailRedirectTo: `https://word-alchemy-git-login-div-styl.vercel.app/auth/callback`
 			}
 		});
-
-
 		if (error) {
 			return fail(500, { message: 'Server error. Try again later.', success: false, email });
 		}
-
 		return {
 			message: 'Please check your email for a magic link to log into the website.',
 			success: true
