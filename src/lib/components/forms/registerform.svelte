@@ -39,6 +39,7 @@
 			<form
 				class="space-y-4 md:space-y-6"
 				method="post"
+				action="?/register"
 				use:enhance
 				on:submit|preventDefault={submitRegister}
 			>

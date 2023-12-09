@@ -1,6 +1,6 @@
 {
 	"name": "wordalchemy",
-	"version": "3.5.3",
+	"version": "4.1.0",
 	"private": true,
 	"scripts": {
 		"dev": "vite dev",
@@ -36,9 +36,6 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"@supabase/auth-helpers-sveltekit": "^0.10.7",
-		"@supabase/supabase-js": "^2.38.5",
-		"@supabase/ui": "^0.36.5",
 		"@vercel/analytics": "^1.1.1",
 		"flowbite": "^2.2.0",
 		"flowbite-svelte": "^0.44.19",

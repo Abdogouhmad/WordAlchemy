@@ -31,6 +31,7 @@
 			<form
 				class="space-y-4 md:space-y-6"
 				method="post"
+				action="?/login"
 				use:enhance
 				on:submit|preventDefault={send}
 			>
