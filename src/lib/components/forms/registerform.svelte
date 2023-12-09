@@ -10,20 +10,15 @@
 	let password = '';
 
 	const submitRegister = async () => {
-		if (password !== confirm_password) {
-			fail = 'Passwords do not match';
-			return;
-		} else {
-			const response = await fetch('/auth/register');
+		const response = await fetch('/auth/register/');
 
-			if (response.ok) {
-				fail = '';
-				isFormSuccess = true;
-				isFormSubmitted = true;
-			} else {
-				isFormSuccess = false;
-				isFormSubmitted = true;
-			}
+		if (response.ok) {
+			fail = '';
+			isFormSuccess = true;
+			isFormSubmitted = true;
+		} else {
+			isFormSuccess = false;
+			isFormSubmitted = true;
 		}
 	};
 </script>

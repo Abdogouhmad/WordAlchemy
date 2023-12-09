@@ -1,4 +1,3 @@
-/** @type {import('./$types').PageServerLoad} */
 import { fail } from '@sveltejs/kit';
 
 export const actions = {
@@ -10,17 +9,17 @@ export const actions = {
 		console.log(formData);
 		const { error } = await supabase.auth.signUp({
 			email,
-			password,
-			options: {
-				emailRedirectTo: `https://word-alchemy-git-login-div-styl.vercel.app/auth/callback`
-			}
+			password
 		});
+
 		if (error) {
-			return fail(500, { message: 'Server error. Try again later.', success: false, email });
+			return fail(500, {
+				email
+			});
 		}
+
 		return {
-			message: 'Please check your email for a magic link to log into the website.',
-			success: true
+			email
 		};
 	}
 };
