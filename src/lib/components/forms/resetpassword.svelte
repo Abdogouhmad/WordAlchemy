@@ -37,6 +37,7 @@
 			class="mt-4 space-y-4 lg:mt-5 md:space-y-5"
 			use:enhance
 			method="post"
+			action="?/reset"
 			on:submit|preventDefault={resetpassword}
 		>
 			<div>
