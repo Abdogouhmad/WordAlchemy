@@ -5,7 +5,7 @@
 
 	export const search = () => {
 		console.log('Word you are Looking for:', word);
-		goto(`/Definition/${word}`);
+		goto(`/define/${word}`);
 	};
 </script>
 

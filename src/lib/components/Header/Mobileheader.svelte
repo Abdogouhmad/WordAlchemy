@@ -2,7 +2,7 @@
 	import { Hum } from '$lib';
 	import Icon from '$lib/assets/Icon.svg';
 	import Toggletheme from './Theme/selectheme.svelte';
-	import { Logoutform } from '$lib';
+	// import { Logoutform } from '$lib';
 
 	export const route = [
 		{
@@ -15,7 +15,6 @@
 		}
 	];
 	export let isNavOpen = false;
-	export let data;
 
 	const toggleNavBar = () => {
 		isNavOpen = !isNavOpen;
@@ -43,8 +42,7 @@
         justify-center items-center md:hidden z-[999]`}
 	>
 		<ul class="text-2xl flex flex-col space-y-5 font-medium">
-			{#if data.session}
-				<a
+			<!-- <a
 					href="/"
 					on:click={closeNavBar}
 					class="hover:text-blue-600 hover:underline pt-1 font-bold text-2xl">Home</a
@@ -54,22 +52,21 @@
 					on:click={closeNavBar}
 					class="hover:text-blue-600 hover:underline pt-1 font-bold text-2xl">Profile</a
 				>
-				<Logoutform on:click={closeNavBar} />
-			{:else}
-				<a
-					href="/"
+				<Logoutform on:click={closeNavBar} /> -->
+
+			<a
+				href="/"
+				on:click={closeNavBar}
+				class="hover:text-blue-600 hover:underline pt-1 font-bold text-2xl">Home</a
+			>
+			{#each route as { name, href }}
+				<button
 					on:click={closeNavBar}
-					class="hover:text-blue-600 hover:underline pt-1 font-bold text-2xl">Home</a
+					class="dark:bg-blue-500/30 bg-blue-500/60 hover:bg-blue-700 dark:hover:bg-blue-700 text-base font-bold py-2 px-2 rounded"
 				>
-				{#each route as { name, href }}
-					<button
-						on:click={closeNavBar}
-						class="dark:bg-blue-500/30 bg-blue-500/60 hover:bg-blue-700 dark:hover:bg-blue-700 text-base font-bold py-2 px-2 rounded"
-					>
-						<a {href}>{name}</a>
-					</button>
-				{/each}
-			{/if}
+					<a {href}>{name}</a>
+				</button>
+			{/each}
 		</ul>
 		<div class="pt-3">
 			<Toggletheme />

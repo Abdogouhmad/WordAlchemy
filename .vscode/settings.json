@@ -1,3 +1,4 @@
 {
-	"cSpell.words": ["SUPABASE"]
+	"cSpell.words": ["SUPABASE"],
+	"editor.formatOnSave": true
 }
