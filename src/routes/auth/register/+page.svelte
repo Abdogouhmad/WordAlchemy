@@ -1,7 +1,6 @@
 <script>
 	/** @type {import('./$types').PageData} */
-	import {Registerform} from '$lib';
-	export let form;
-</script> 
+	import { Registerform } from '$lib';
+</script>
 
-<Registerform {form} />
+<Registerform />
