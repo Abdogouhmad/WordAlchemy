@@ -5,7 +5,7 @@
 	import Cbutton from './navbutton.svelte';
 	import { Logoutform } from '$lib';
 
-	export let user;
+	export let user = null;
 </script>
 
 <nav class="md:border-b-[1px] md:border-blue-600/25 md:dark:border-b-0">
@@ -17,10 +17,11 @@
 
 		<div class="flex">
 			<ul class="text-2xl flex space-x-5 flex-row font-medium">
-				{#if user.session}
-					<Logoutform />
-				{:else}
+				{#if user}
 					<Cbutton />
+				{:else}
+
+					<Logoutform />
 				{/if}
 			</ul>
 			<div class="flex pt-2 pl-10">

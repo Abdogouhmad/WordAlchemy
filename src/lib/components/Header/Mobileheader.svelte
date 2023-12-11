@@ -21,9 +21,9 @@
 	async function submitLogout() {
 		const res = await fetch('/auth/logout', { method: 'PUT' });
 
-		const data = res.json;
+		const user = res.json;
 
-		console.log(data);
+		console.log(user);
 		goto('/');
 	}
 	export let isNavOpen = false;

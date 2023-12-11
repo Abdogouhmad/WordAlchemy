@@ -14,5 +14,6 @@ export async function PUT({ cookies }) {
 				status: 500
 			})
 		);
+		
 	}
 }

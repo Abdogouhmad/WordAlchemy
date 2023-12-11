@@ -23,6 +23,13 @@ async function authenticateUser(event) {
 	return null;
 }
 
+/**
+ * Handles the given event and returns the response.
+ *
+ * @param {Object} event - The event object.
+ * @param {Function} resolve - The resolve function.
+ * @return {Promise} A promise that resolves to the response.
+ */
 export async function handle({ event, resolve }) {
 	// Stage 1
 	event.locals.user = await authenticateUser(event);
@@ -38,7 +45,10 @@ export async function handle({ event, resolve }) {
 		}
 	}
 
-	if (event.url.pathname.startsWith('/auth/login') || event.url.pathname.startsWith('/auth/register')) {
+	if (
+		event.url.pathname.startsWith('/auth/login') ||
+		event.url.pathname.startsWith('/auth/register')
+	) {
 		if (event.locals.user) {
 			throw redirect(303, '/profile/collection');
 		}
