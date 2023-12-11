@@ -4,18 +4,13 @@
 	import { dev } from '$app/environment';
 	import { inject } from '@vercel/analytics';
 	import { Navbar } from '$lib';
-	//import { DEngine } from '$lib';
-
-
 	inject({ mode: dev ? 'development' : 'production' });
+
+	export let data;
 </script>
 
 <header>
-	<Navbar />
+	<Navbar user={data.user} />
 </header>
-<!-- 
-<section class="flex justify-center pt-10">
-	<DEngine />
-</section> -->
 
 <slot />

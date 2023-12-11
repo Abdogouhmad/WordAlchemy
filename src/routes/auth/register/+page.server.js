@@ -1,4 +1,4 @@
-import { fail, redirect } from '@sveltejs/kit';
+import { fail } from '@sveltejs/kit';
 import { db } from '$lib/db.js';
 import bcrypt from 'bcrypt';
 import crypto from 'crypto';

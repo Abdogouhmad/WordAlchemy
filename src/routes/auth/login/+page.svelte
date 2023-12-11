@@ -1,7 +1,6 @@
 <script>
 	/** @type {import('./$types').PageData} */
-	import {Loginform} from '$lib';
-	export let form
+	import { Loginform } from '$lib';
 </script>
 
-<Loginform {form} />
+<Loginform />

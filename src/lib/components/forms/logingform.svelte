@@ -1,13 +1,16 @@
 <script>
 	import { enhance } from '$app/forms';
+	import { goto } from '$app/navigation';
 
 	let fail = '';
-	export let form;
+	let emailusername;
+	let password;
 
 	const send = async () => {
 		const res = await fetch('/auth/login');
 		if (res.ok) {
 			console.log('logged in');
+			goto('/');
 		} else {
 			console.log('not logged in');
 			fail = 'Login Failed';
@@ -37,16 +40,16 @@
 			>
 				<div>
 					<label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-						>Your email</label
+						>Your email or username</label
 					>
 					<input
-						type="email"
-						name="email"
-						id="email"
+						type="text"
+						name="credentials"
+						id="credentials"
 						class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-						placeholder="name@company.com"
+						placeholder="name@company.com or username"
 						required
-						value={form?.email ?? ''}
+						bind:value={emailusername}
 					/>
 				</div>
 				<div>
@@ -57,9 +60,9 @@
 						type="password"
 						name="password"
 						id="password"
-						placeholder="••••••••"
+						placeholder="your password"
 						class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-						value
+						bind:value={password}
 						required
 					/>
 				</div>
