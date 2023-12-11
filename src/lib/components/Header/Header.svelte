@@ -18,10 +18,6 @@
 		<div class="flex">
 			<ul class="text-2xl flex space-x-5 flex-row font-medium">
 				{#if user}
-					<a
-						href="/profile/collection"
-						class="hover:text-blue-600 hover:underline pt-1 font-bold text-2xl">Profile</a
-					>
 					<Logoutform />
 				{:else}
 					<Cbutton />

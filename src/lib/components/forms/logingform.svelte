@@ -1,6 +1,6 @@
 <script>
 	import { enhance } from '$app/forms';
-	import { goto } from '$app/navigation';
+	// import { goto } from '$app/navigation';
 
 	let fail = '';
 	let emailusername;
@@ -10,7 +10,7 @@
 		const res = await fetch('/auth/login');
 		if (res.ok) {
 			console.log('logged in');
-			goto('/');
+			// goto('/');
 		} else {
 			console.log('not logged in');
 			fail = 'Login Failed';
