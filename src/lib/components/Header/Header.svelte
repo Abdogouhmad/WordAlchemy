@@ -17,7 +17,7 @@
 
 		<div class="flex">
 			<ul class="text-2xl flex space-x-5 flex-row font-medium">
-				{#if user}
+				{#if user.session}
 					<Logoutform />
 				{:else}
 					<Cbutton />

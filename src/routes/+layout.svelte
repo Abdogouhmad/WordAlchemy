@@ -10,7 +10,7 @@
 </script>
 
 <header>
-	<Navbar user={data.user} />
+	<Navbar user={data} />
 </header>
 
 <slot />
