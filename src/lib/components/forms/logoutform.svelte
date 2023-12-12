@@ -1,5 +1,4 @@
 <script>
-	import { enhance } from '$app/forms';
 	import { goto } from '$app/navigation';
 
 	async function submitLogout() {
@@ -7,7 +6,9 @@
 		if (res.ok) {
 			goto('/auth/login');
 		}
+
 	}
+	
 </script>
 
 <button
