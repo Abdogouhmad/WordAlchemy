@@ -34,13 +34,13 @@ export async function handle({ event, resolve }) {
 	// Stage 1
 	event.locals.user = await authenticateUser(event);
 
-	if (event.url.pathname.startsWith('/profile/collection')) {
+	if (event.url.pathname.startsWith('/profile/')) {
 		if (!event.locals.user) {
 			throw redirect(303, '/');
 		}
-		if (event.url.pathname.startsWith('/profile/collection')) {
+		if (event.url.pathname.startsWith('/profile/')) {
 			if (event.locals.user.roleId !== 1) {
-				throw redirect(303, '/profile/collection');
+				throw redirect(303, '/profile/');
 			}
 		}
 	}
@@ -50,7 +50,7 @@ export async function handle({ event, resolve }) {
 		event.url.pathname.startsWith('/auth/register')
 	) {
 		if (event.locals.user) {
-			throw redirect(303, '/profile/collection');
+			throw redirect(303, '/profile/');
 		}
 	}
 

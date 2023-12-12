@@ -8,6 +8,8 @@ export const actions = {
 		const loginUser = FormData.get('credentials');
 		const password = FormData.get('password');
 
+		console.log(FormData);
+
 		if (typeof loginUser !== 'string' || typeof password !== 'string' || !loginUser || !password) {
 			return fail(400, { invalidFormat: true });
 		}
@@ -52,6 +54,6 @@ export const actions = {
 			maxAge: 60 * 60 * 24 * 7
 		});
 
-		throw redirect(302, '/profile/collection');
+		throw redirect(302, '/profile/');
 	}
 };

@@ -5,10 +5,10 @@
 	import Cbutton from './navbutton.svelte';
 	import { Logoutform } from '$lib';
 
-	export let user = null;
+	export let user;
 </script>
 
-<nav class="md:border-b-[1px] md:border-blue-600/25 md:dark:border-b-0">
+<nav class="md:border-[1px] md:border-blue-600/25 md:dark:border-b-0">
 	<div class="hidden sm:flex max-w-screen-xl justify-between mx-auto p-3">
 		<a href="/" class="flex items-start justify-start">
 			<img src={Icon} class="h-7 w-7" alt="WordAlchemy Logo" />
@@ -18,10 +18,9 @@
 		<div class="flex">
 			<ul class="text-2xl flex space-x-5 flex-row font-medium">
 				{#if user}
-					<Cbutton />
-				{:else}
-
 					<Logoutform />
+				{:else}
+					<Cbutton />
 				{/if}
 			</ul>
 			<div class="flex pt-2 pl-10">
