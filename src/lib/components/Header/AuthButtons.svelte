@@ -11,7 +11,7 @@
 
 <button
 	on:click={closeNavBar}
-	class="{mobileStyle} hover:text-gray-50 border-2 border-blue-400 bg-blue-400 text-base font-bold py-1 px-2 rounded-lg"
+	class="{mobileStyle} hover:text-gray-50 dark:hover:text-gray-900 border-2 border-blue-400 bg-blue-400 text-base font-bold py-1 px-2 rounded-lg"
 >
 	<a href="/login">Log in</a>
 </button>
