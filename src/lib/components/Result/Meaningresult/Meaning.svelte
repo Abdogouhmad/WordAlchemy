@@ -19,7 +19,6 @@
 	export let wordsearch = '';
 	export let pagetitle = '';
 	export let description = '';
-
 	$: {
 		wordsearch = wordefine;
 		pagetitle = `WordAlchemy | Definition of ${wordsearch}`;
