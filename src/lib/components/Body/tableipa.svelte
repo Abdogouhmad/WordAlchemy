@@ -8,10 +8,10 @@
 			IPA: 'ɑː',
 			Meaning: 'a'
 		},
-        {
-            IPA: 'b',
-            Meaning: 'cool'
-        }
+		{
+			IPA: 'b',
+			Meaning: 'cool'
+		}
 	];
 </script>
 

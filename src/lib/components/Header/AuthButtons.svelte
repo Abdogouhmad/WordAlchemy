@@ -4,23 +4,20 @@
 		isNavOpen = false;
 		console.log('fromnavbutton: ', isNavOpen);
 	};
-	export const route = [
-		{
-			name: 'Log in',
-			href: '/login'
-		},
-		{
-			name: 'Sing Up',
-			href: '/register'
-		}
-	];
+
+	export let mobile;
+	let mobileStyle = mobile ? 'w-1/2 flex flex-col' : '';
 </script>
 
-{#each route as { name, href }}
-	<button
-		on:click={closeNavBar}
-		class="dark:bg-blue-500/30 bg-blue-500/60 hover:bg-blue-700 dark:hover:bg-blue-700 text-base font-bold py-2 px-2 rounded"
-	>
-		<a {href}>{name}</a>
-	</button>
-{/each}
+<button
+	on:click={closeNavBar}
+	class="{mobileStyle} hover:text-gray-900 border-2 border-blue-400 bg-blue-400 text-base font-bold py-1 px-2 rounded-lg"
+>
+	<a href="/login">Log in</a>
+</button>
+<button
+	on:click={closeNavBar}
+	class="{mobileStyle} hover:text-gray-900 dark:bg-blue-500/30 border-2 border-blue-400 bg-transparent hover:bg-blue-400 dark:hover:bg-blue-400 text-base font-bold py-1 px-2 rounded-lg"
+>
+	<a href="/register">Sign Up</a>
+</button>

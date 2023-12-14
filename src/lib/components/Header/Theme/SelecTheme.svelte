@@ -17,11 +17,12 @@
 			type="checkbox"
 			id="toggle"
 			bind:checked={darkMode}
-			on:change={() => document.documentElement.classList.toggle('dark')}
-		/>
+			on:change={() => document.documentElement.classList.toggle('dark')} />
 		<label id="darkicon" title="Toggle dark mode" for="toggle" data-dark={darkMode ? '🌙' : '🌞'} />
 	</div>
 {/if}
+
+<!-- bg-gray-500 -->
 
 <style style lang="postcss">
 	.toggle input[type='checkbox'] {
@@ -48,5 +49,3 @@
 		transform: translateX(24px);
 	}
 </style>
-
-<!-- bg-gray-500 -->

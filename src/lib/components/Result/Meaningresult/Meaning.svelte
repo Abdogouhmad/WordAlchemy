@@ -27,14 +27,7 @@
 	}
 </script>
 
-<div class=" font-light justify-center flex pt-5 text-justify text-sm">
-	<p>
-		Definition of <b class="font-bold whitespace-pre-line text-blue-400">{wordefine}</b> From The WordAlchemy's
-		Dictionary
-	</p>
-</div>
-
-<section class="@container flex flex-col">
+<section class=" @container flex flex-col">
 	<!-- * top container -->
 	{#if data}
 		<div class="flex md:items-baseline p-10 flex-col">
@@ -44,14 +37,18 @@
 			<div class="flex flex-row">
 				<button on:click={playaudio}>
 					<img src={AudioIcon} alt="Audioicon" class="h-7 w-7" />
-				</button> <em class="font-normal text-base text-blue-600 mx-3 my-3">{phonetic.text}</em>
+				</button>
+				<em class="font-normal text-base text-blue-600 mx-3 my-3">{phonetic.text}</em>
 			</div>
 			{#each data.meanings as meaning}
-				<div class="pt-5 flex flex-row justify-between">
-					<h1 class="font-bold md:text-2xl italic text-xl">{meaning.partOfSpeech}</h1>
-					<hr class="w-full md:w-[25cm] mx-2 border-1 border-blue-600 my-4" />
+				<div class="w-full pt-5 flex flex-row justify-end">
+					<h1 style="white-space: nowrap;" class="flex font-bold md:text-2xl italic text-xl">
+						{meaning.partOfSpeech}
+					</h1>
+					<hr class="w-full mx-3 border-1 border-blue-300 my-4" />
 				</div>
-				<div>
+
+				<div class="">
 					<h2 class="md:text-2xl pt-4 text-base font-semibold italic">Meaning</h2>
 					<ul
 						class="pt-5 text-sm md:text-base marker:text-blue-600 font-medium list-disc list-outside"
@@ -83,7 +80,7 @@
 			<!-- sources -->
 			<div class="pt-5 flex flex-row justify-between">
 				<h1 class="font-bold md:text-2xl italic text-xl">Sources</h1>
-				<hr class="w-full md:w-[25cm] mx-2 border-1 border-blue-600 my-4" />
+				<hr class="w-full md:w-[500px] mx-2 border-1 border-blue-300 my-4" />
 			</div>
 			<div class="flex flex-row pt-3 space-x-3">
 				{#each dictionaries as { name, imageurl, wordlink }}

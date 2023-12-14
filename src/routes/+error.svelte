@@ -43,8 +43,7 @@
 			<a
 				href="/"
 				class="px-6 py-2 text-base font-semibold text-black bg-blue-500 rounded-full hover:bg-blue-600"
-				>Go home</a
-			>
+				>Go home</a>
 		</div>
 	</div>
 </div>

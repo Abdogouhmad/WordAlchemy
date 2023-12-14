@@ -1,3 +1,1 @@
-<section>
-    admin
-</section>
+<section>admin</section>

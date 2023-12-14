@@ -9,7 +9,7 @@
 	};
 </script>
 
-<form on:submit|preventDefault={search}>
+<form class="mx-5 w-full" on:submit|preventDefault={search}>
 	<!-- <label  class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"
 		>Search</label
 	> -->
@@ -17,13 +17,13 @@
 		<input
 			type="text"
 			bind:value={word}
-			class=" w-80 md:w-96 lg:w-[600px] p-5 pl-5 text-sm text-gray-900 border
+			class=" w-full p-5 pl-5 text-sm text-gray-900 border
 			border-blue-300 rounded-md bg-gray-50
 			focus:ring-blue-500
 			dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-500 dark:text-white
-			dark:hover:border-blue-500 "
+			dark:hover:border-blue-500"
 			placeholder="Search for a word..."
-			aria-label='Search input'
+			aria-label="Search input"
 			required
 		/>
 		<button
