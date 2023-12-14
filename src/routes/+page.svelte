@@ -31,11 +31,8 @@
 	<meta name="description" content={pageDescription} />
 </svelte:head>
 
-<section class="flex flex-col justify-center items-center">
+<section class="flex flex-col items-center">
 	<div bind:this={lottieElement} class="md:h-[40vh] h-[300px] lg:h-[67vh]" />
-
 	<!-- the search componante -->
-	<section class="flex justify-center pt-10">
-		<DEngine />
-	</section>
+	<DEngine />
 </section>
