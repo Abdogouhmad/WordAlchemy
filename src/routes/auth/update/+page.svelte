@@ -4,4 +4,4 @@
 	export let form;
 </script>
 
-<UpdateUser {form}  />
+<UpdateUser {form} />

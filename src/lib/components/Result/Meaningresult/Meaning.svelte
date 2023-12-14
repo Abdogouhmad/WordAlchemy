@@ -32,7 +32,6 @@
 	<DEngine />
 </section>
 
-
 <div class=" font-light justify-center flex pt-5 text-justify text-sm">
 	<p>
 		Definition of <b class="font-bold whitespace-pre-line text-blue-400">{wordefine}</b> From The WordAlchemy's
@@ -60,8 +59,7 @@
 				<div>
 					<h2 class="md:text-2xl pt-4 text-base font-semibold italic">Meaning</h2>
 					<ul
-						class="pt-5 text-sm md:text-base marker:text-blue-600 font-medium list-disc list-outside"
-					>
+						class="pt-5 text-sm md:text-base marker:text-blue-600 font-medium list-disc list-outside">
 						{#each meaning.definitions as def}
 							<li class="text-base my-2 text-start leading-relaxed">
 								{def.definition}

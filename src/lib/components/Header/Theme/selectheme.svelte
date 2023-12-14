@@ -20,8 +20,7 @@
 			bind:checked={darkMode}
 			on:change={() => {
 				document.documentElement.classList.toggle('dark', darkMode);
-			}}
-		/>
+			}} />
 		<label id="darkicon" title="Toggle dark mode" for="toggle" data-dark={darkMode ? '🌙' : '🌞'} />
 	</div>
 {/if}

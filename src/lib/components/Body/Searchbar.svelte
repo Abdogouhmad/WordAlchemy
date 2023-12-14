@@ -18,16 +18,14 @@
 			border-blue-200 rounded-md bg-gray-100
 			hover:border-blue-700
 			dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-500 dark:text-white
-			dark:hover:border-blue-700 "
+			dark:hover:border-blue-700"
 			placeholder="Search for a word..."
-			aria-label='Search input'
-			required
-		/>
+			aria-label="Search input"
+			required />
 		<button
 			type="submit"
 			class="text-white absolute right-3.5 bottom-3.5 bg-blue-500 hover:bg-blue-700
         	font-medium rounded-lg text-sm px-4 py-2
-            dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:border-blue-800">Search</button
-		>
+            dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:border-blue-800">Search</button>
 	</div>
 </form>

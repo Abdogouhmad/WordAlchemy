@@ -12,7 +12,6 @@ import { error } from '@sveltejs/kit';
  * @throws {Error} If the API request fails or returns a status code of 404.
  */
 
-
 export async function load({ fetch, params }) {
 	let { word } = params;
 	try {

@@ -1,10 +1,10 @@
 <script>
-	import { goto } from '$app/navigation';
+	import { browser } from '$app/environment';
 
 	async function submitLogout() {
 		const res = await fetch('/auth/logout', { method: 'PUT' });
-		if (res.ok) {
-			goto('/auth/login');
+		if (browser) {
+			window.location.href = '/auth/login';
 		}
 	}
 </script>
@@ -18,8 +18,7 @@
 	font-bold
 	py-2 px-2
 	rounded
-	"
->
+	">
 	<a href="/auth/login">Profile</a>
 </button>
 <button
@@ -27,7 +26,6 @@
 	type="submit"
 	class="dark:bg-blue-500/30 dark:hover:bg-red-600/90
 	border-[1.5px] border-red-500 hover:border-none
-	hover:bg-red-600/90 dark:hover:bg-blue-700 text-base font-bold py-2 px-2 rounded"
->
+	hover:bg-red-600/90 dark:hover:bg-blue-700 text-base font-bold py-2 px-2 rounded">
 	Log out
 </button>
