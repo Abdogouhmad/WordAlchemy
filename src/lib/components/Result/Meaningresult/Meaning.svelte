@@ -48,13 +48,13 @@
 					<hr class="w-full mx-3 border-1 border-blue-300 my-4" />
 				</div>
 
-				<div class="">
+				<div class="w-full">
 					<h2 class="md:text-2xl pt-4 text-base font-semibold italic">Meaning</h2>
 					<ul
-						class="pt-5 text-sm md:text-base marker:text-blue-600 font-medium list-disc list-outside"
+						class=" pt-5 text-sm md:text-base marker:text-blue-600 font-medium list-disc list-outside"
 					>
 						{#each meaning.definitions as def}
-							<li class="text-base my-2 text-start leading-relaxed">
+							<li class="w-fit text-base my-2 text-start leading-relaxed">
 								{def.definition}
 								{#if def.example}
 									<p class="text-base text-blue-800/90 dark:text-gray-500 italic pt-3">
@@ -65,22 +65,26 @@
 						{/each}
 					</ul>
 					<!-- ! Synonyms -->
-					<div class="flex flex-row pt-5 space-x-3">
-						{#if meaning.synonyms}
-							<h2 class="text-base text-gray-400 font-semibold">Synonyms</h2>
-							<span class="text-base font-medium text-blue-700">{meaning.synonyms}</span>
-						{/if}
-						{#if meaning.antonyms}
-							<h2 class="text-base text-gray-400 font-semibold">Antonyms</h2>
-							<span class="text-base font-medium text-blue-700">{meaning.antonyms}</span>
-						{/if}
+					<div class="flex flex-col pt-5 space-y-4">
+						<div>
+							{#if meaning.synonyms}
+								<h2 class="text-base text-gray-400 font-semibold">Synonyms</h2>
+								<span class="text-base font-medium text-blue-700">{meaning.synonyms}</span>
+							{/if}
+						</div>
+						<div>
+							{#if meaning.antonyms}
+								<h2 class="text-base text-gray-400 font-semibold">Antonyms</h2>
+								<span class="text-base font-medium text-blue-700">{meaning.antonyms}</span>
+							{/if}
+						</div>
 					</div>
 				</div>
 			{/each}
 			<!-- sources -->
-			<div class="pt-5 flex flex-row justify-between">
+			<div class="w-full pt-5 flex flex-row justify-between">
 				<h1 class="font-bold md:text-2xl italic text-xl">Sources</h1>
-				<hr class="w-full md:w-[500px] mx-2 border-1 border-blue-300 my-4" />
+				<hr class="w-full mx-3 border-1 border-blue-300 my-4" />
 			</div>
 			<div class="flex flex-row pt-3 space-x-3">
 				{#each dictionaries as { name, imageurl, wordlink }}
