@@ -19,7 +19,7 @@
 	py-2 px-2
 	rounded
 	">
-	<a href="/auth/login">Profile</a>
+	<a href="/profile">Profile</a>
 </button>
 <button
 	on:click={submitLogout}
