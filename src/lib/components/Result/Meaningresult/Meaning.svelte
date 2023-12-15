@@ -46,7 +46,7 @@
 			<h1 class="text-5xl font-bold">
 				{wordefine}
 			</h1>
-			<div class="flex flex-row">
+			<div class="flex pt-3 flex-row">
 				<button on:click={playaudio}>
 					<img src={AudioIcon} alt="Audioicon" class="h-7 w-7" />
 				</button> <em class="font-normal text-base text-blue-600 mx-3 my-3">{phonetic.text}</em>

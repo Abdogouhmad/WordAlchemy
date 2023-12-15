@@ -17,8 +17,8 @@
 <nav class="{responsive} dark:bg-black bg-gray-50">
 	<div class="max-w-screen-xl flex justify-between items-center mx-auto p-3">
 		<a href="/" class="flex items-start justify-start">
-			<img src={Icon} class="h-7 w-7 mr" alt="WordAlchemy Logo" />
-			<span class="text-2xl mx-2 font-Dhurjati">WordAlchemy</span>
+			<img src={Icon} class="h-8 w-8 mr" alt="WordAlchemy Logo" />
+			<span class="text-3xl mx-2 font-Dhurjati">WordAlchemy</span>
 		</a>
 
 		<div class="hidden md:flex space-x-10 items-center">
