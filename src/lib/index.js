@@ -8,7 +8,7 @@ export { default as Caterror } from './components/UI/error404.json';
 export { default as Meaning } from './components/Result/Meaningresult/Meaning.svelte';
 export { default as Loginform } from './components/forms/logingform.svelte';
 export { default as Registerform } from './components/forms/registerform.svelte';
-export { default as Logoutform } from './components/forms/logoutform.svelte';
+export { default as Logoutbutton } from './components/forms/logoutbutton.svelte';
 export { default as Hum } from './components/UI/humberger.svelte';
 export { default as Resetpassword } from './components/forms/resetpassword.svelte';
 export { default as UpdateUser } from './components/forms/updateuser.svelte';

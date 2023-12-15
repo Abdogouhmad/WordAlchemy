@@ -32,6 +32,7 @@
 		"request": "^2.88.2",
 		"svelte": "^4.2.7",
 		"svelte-check": "^3.6.0",
+		"svelte-hamburger": "^1.0.1",
 		"tailwindcss": "^3.3.5",
 		"vite": "^4.5.0",
 		"vite-node": "^1.0.4",

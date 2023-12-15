@@ -3,7 +3,11 @@ export default {
 	content: ['./src/**/*.{html,js,svelte,ts}'],
 	darkMode: 'class',
 	theme: {
-		extend: {}
+		extend: {
+			fontFamily: {
+				Dhurjati: ['Dhurjati', 'sans-serif']
+			}
+		}
 	},
 	plugins: []
 };

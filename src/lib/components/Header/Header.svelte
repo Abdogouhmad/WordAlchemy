@@ -1,32 +1,68 @@
 <script>
 	import Icon from '$lib/assets/Icon.svg';
-	import Mobileheader from './Mobileheader.svelte';
 	import Toggletheme from './Theme/selectheme.svelte';
-	import Cbutton from './navbutton.svelte';
-	import { Logoutform } from '$lib';
+	import AuthButtons from './authbutton.svelte';
+	import { Logoutbutton } from '$lib';
+
+	import Hamburger from 'svelte-hamburger';
 
 	export let user;
+
+	let open = false;
+
+	const responsive =
+		'md:w-[700px] m-3 md:mx-auto lg:w-[700px] lg:mx-auto rounded-2xl border border-blue-300';
 </script>
 
-<nav class="md:border-[1px] md:border-blue-600/25 md:dark:border-b-0">
-	<div class="hidden sm:flex max-w-screen-xl justify-between mx-auto p-3">
+<nav class="{responsive} dark:bg-black bg-gray-50">
+	<div class="max-w-screen-xl flex justify-between items-center mx-auto p-3">
 		<a href="/" class="flex items-start justify-start">
-			<img src={Icon} class="h-7 w-7" alt="WordAlchemy Logo" />
-			<span class="text-2xl font-semibold mx-2">WordAlchemy</span>
+			<img src={Icon} class="h-7 w-7 mr" alt="WordAlchemy Logo" />
+			<span class="text-2xl mx-2 font-Dhurjati">WordAlchemy</span>
 		</a>
 
-		<div class="flex">
-			<ul class="text-2xl flex space-x-5 flex-row font-medium">
+		<div class="hidden md:flex space-x-10 items-center">
+			{#if user}
+				<button
+					class="rounded-lg border-2 border-blue-300 dark:bg-blue-500/30 bg-blue-500/60 hover:bg-blue-700 dark:hover:bg-blue-700 text-base font-bold py-2 px-2">
+					<a href="/profile">Profile</a>
+				</button>
+			{/if}
+
+			<div class="space-x-4">
 				{#if user}
-					<Logoutform />
+					<Logoutbutton />
 				{:else}
-					<Cbutton />
+					<AuthButtons mobile={false} />
 				{/if}
-			</ul>
-			<div class="flex pt-2 pl-10">
-				<Toggletheme />
 			</div>
+
+			<Toggletheme />
 		</div>
+
+		<Hamburger
+			--line-width="4px"
+			{open}
+			on:click={() => (open = !open)}
+			class="  md:hidden lg:hidden" />
 	</div>
-	<Mobileheader {user} />
 </nav>
+
+<!-- burger menu -->
+
+{#if open}
+	<div
+		class="m-3 dark:bg-black bg-gray-50 md:hidden lg:hidden space-y-3 p-3 border border-blue-300 rounded-lg flex flex-col items-center">
+
+
+		{#if user}
+			<Logoutbutton />
+		{/if}
+
+		{#if !user}
+			<AuthButtons mobile={true} />
+		{/if}
+
+		<Toggletheme />
+	</div>
+{/if}

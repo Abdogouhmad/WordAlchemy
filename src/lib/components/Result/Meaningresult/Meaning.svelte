@@ -54,7 +54,7 @@
 			{#each data.meanings as meaning}
 				<div class="pt-5 flex flex-row justify-between">
 					<h1 class="font-bold md:text-2xl italic text-xl">{meaning.partOfSpeech}</h1>
-					<hr class="w-96 mx-5 border-t-2 border-solid border-blue-600 my-5">
+					<hr class="w-96 mx-5 border-t-2 border-solid border-blue-600 my-5" />
 				</div>
 				<div>
 					<h2 class="md:text-2xl pt-4 text-base font-semibold italic">Meaning</h2>
@@ -87,7 +87,7 @@
 			<!-- sources -->
 			<div class="pt-5 flex flex-row justify-between">
 				<h1 class="font-bold md:text-2xl italic text-xl">Sources</h1>
-				<hr class="w-96 mx-5 border-t-2 border-solid border-blue-600 my-5">
+				<hr class="w-96 mx-5 border-t-2 border-solid border-blue-600 my-5" />
 			</div>
 			<div class="flex flex-row pt-3 space-x-3">
 				{#each dictionaries as { name, imageurl, wordlink }}
