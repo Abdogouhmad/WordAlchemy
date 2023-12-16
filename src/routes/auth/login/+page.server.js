@@ -21,14 +21,15 @@ export const actions = {
 			}
 		});
 
-		if (!user) {
-			return fail(400, { credentials: true });
-		}
-
 		// check password
 		const userPassword = await bcrypt.compare(password, user.password);
 
-		if (!userPassword) {
+		if (!userPassword ) {
+			console.log('wrong password');
+			return fail(400, { credentials: false });
+		}
+		if (!user) {
+			console.log('no user');
 			return fail(400, { credentials: true });
 		}
 

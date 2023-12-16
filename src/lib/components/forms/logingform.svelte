@@ -1,5 +1,7 @@
 <script>
 	let title = 'Login';
+	// check if the user is credential is correct
+	export let form;
 </script>
 
 <svelte:head>
@@ -59,6 +61,20 @@
 						class="text-sm font-medium text-primary-600 hover:underline dark:text-primary-500"
 						>Forgot password?</a>
 				</div>
+
+				{#if form && form.user}
+					<div class="pt-3">
+						<h1 class="bg-red-300 text-red-500 p-2.5 justify-center text-center w-full rounded-lg">
+							Wrong mail/username or password
+						</h1>
+					</div>
+				{:else if form && form.invalidFormat}
+					<div class="pt-3">
+						<h1 class="bg-red-300 text-red-500 p-2.5 justify-center text-center w-full rounded-lg">
+							Invalid format
+						</h1>
+					</div>
+				{/if}
 
 				<button
 					type="submit"
