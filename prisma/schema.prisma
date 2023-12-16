@@ -54,10 +54,35 @@ model User {
 
   role   Roles @relation(fields: [roleId], references: [id])
   roleId Int
+
+
+  collections Collection[]
 }
+
+
 
 model Roles {
   id   Int    @id @default(autoincrement())
   name String @unique
   User User[]
+}
+
+
+model Collection {
+  id        Int      @id @default(autoincrement())
+  name      String
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+  words     Word[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Word {
+  id           Int      @id @default(autoincrement())
+  text         String
+  collectionId Int
+  collection   Collection @relation(fields: [collectionId], references: [id])
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
 }

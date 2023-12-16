@@ -1,4 +1,5 @@
 import nodemailer from 'nodemailer';
+import fs from 'fs/promises';
 
 export const sendConfirmationEmail = async (email, token) => {
 	const transporter = nodemailer.createTransport({
@@ -15,7 +16,49 @@ export const sendConfirmationEmail = async (email, token) => {
 		from: 'adil2mae@gmail.com',
 		to: email,
 		subject: 'Word Alchemy Account Confirmation',
-		text: `Please click the following link to confirm your email: ${confirmationLink}`
+		// text: `Please click the following link to confirm your email: ${confirmationLink}`
+
+		// html: await fs.readFile(
+		// 	'/home/adil/PROJECTS/PERSONAL/test/WordAlchemy/src/lib/assets/confirmation.html',
+		// 	(err, data) => {
+		// 		if (err) {
+		// 			console.error('Error reading the file:', err);
+		// 			return;
+		// 		}
+
+		// 		// Process the file content (in this example, just log it)
+		// 		console.log(data);
+		// 	}
+		// )
+
+		html: `
+		<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    /* Manually inline Tailwind CSS styles for the h1 tag */
+    .text-red-600 {
+      color: #dc2626;
+    }
+    .text-3xl {
+      font-size: 1.875rem; /* 30px */
+    }
+    .font-bold {
+      font-weight: 700;
+    }
+    .underline {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <h1 class="text-red-600 text-3xl font-bold underline">Hello world!</h1>
+</body>
+</html>
+
+		`
 	};
 
 	try {

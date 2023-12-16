@@ -64,11 +64,13 @@
 						{/each}
 					</ul>
 					<!-- ! Synonyms -->
-					<div class="flex flex-col pt-5 space-y-4">
+					<div class=" flex flex-col space-y-4">
 						<div>
 							{#if meaning.synonyms}
 								<h2 class="text-base text-gray-400 font-semibold">Synonyms</h2>
-								<span class="text-base font-medium text-blue-700">{meaning.synonyms}</span>
+								<div class=" text-base font-medium text-blue-700">
+									{meaning.synonyms}
+								</div>
 							{/if}
 						</div>
 						<div>
