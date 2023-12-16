@@ -94,7 +94,8 @@
 		<button
 			on:click={() => (isCreatingCollection = true)}
 			class="mx-auto space-x-3 flex items-center justify-center rounded-lg h-10 w-1/2 border-2 border-blue-400"
-			type="submit">
+			type="submit"
+		>
 			<span>Create Collection</span>
 			<span class="text-3xl">+</span>
 		</button>
@@ -103,23 +104,27 @@
 	{#if isCreatingCollection}
 		<form
 			class="bg-gray-400/30 rounded-lg py-3 space-y-3 flex flex-col"
-			on:submit|preventDefault={createCollection}>
+			on:submit|preventDefault={createCollection}
+		>
 			<input
 				class=" border-2 border-blue-400 mx-3 px-3 h-11 rounded rouned-lg text-gray-900"
 				type="text"
 				id="collectionName"
 				bind:value={collectionName}
 				required
-				placeholder="Create Collection ..." />
+				placeholder="Create Collection ..."
+			/>
 
 			<div class="space-y-3 w-full flex flex-col items-center">
 				<button
 					class="h-10 w-1/2 text-white hover:text-gray-900 dark:text-gray-900 dark:hover:text-white rounded-lg px-2 border-2 border-blue-400 bg-blue-400 hover:bg-transparent"
-					type="submit">Create Collection</button>
+					type="submit">Create Collection</button
+				>
 				<button
 					on:click={() => (isCreatingCollection = false)}
 					class="h-10 w-1/2 border-blue-400 hover:bg-blue-400 hover:text-white dark:hover:bg-blue-400 dark:hover:text-gray-900 dark:hover:border-blue-400 px-2 rounded-lg border-2 flex justify-center items-center"
-					type="submit">
+					type="submit"
+				>
 					Cancel
 				</button>
 			</div>
@@ -131,19 +136,22 @@
 			{#each collections as collection, index}
 				<li key={index}>
 					<button
-						class="flex justify-between items-center px-3 h-14 rounded-lg w-full border-2 border-blue-400">
+						class="flex justify-between items-center px-3 h-14 rounded-lg w-full border-2 border-blue-400"
+					>
 						<span>{collection.name}</span>
 
 						<div class="space-x-4 flex items-center">
 							<button
 								on:click={() => (collection.isCreatingNewWord = !collection.isCreatingNewWord)}
 								class="border-blue-400 hover:bg-blue-400 hover:text-white dark:hover:bg-blue-400 dark:hover:text-gray-900 dark:hover:border-blue-400 px-2 rounded-lg border-2 flex items-center"
-								>add word</button>
+								>add word</button
+							>
 							<button
 								class="text-white hover:text-gray-900 dark:text-gray-900 dark:hover:text-white rounded-lg px-2 border-2 border-blue-400 bg-blue-400 hover:bg-transparent"
 								on:click={() =>
 									(collection.isCollectionWordsOpen = !collection.isCollectionWordsOpen)}
-								>{collection.isCollectionWordsOpen ? 'close' : 'expand'}</button>
+								>{collection.isCollectionWordsOpen ? 'close' : 'expand'}</button
+							>
 						</div>
 					</button>
 				</li>
@@ -151,22 +159,26 @@
 				{#if collection.isCreatingNewWord}
 					<form
 						class="bg-gray-400/30 rounded-lg py-3 space-y-3 flex flex-col"
-						on:submit|preventDefault={addWord(collection.id)}>
+						on:submit|preventDefault={addWord(collection.id)}
+					>
 						<input
 							class=" border-2 border-blue-400 mx-3 px-3 h-11 rounded rouned-lg text-gray-900"
 							type="text"
 							bind:value={newWordName}
 							required
-							placeholder="Add New Word ..." />
+							placeholder="Add New Word ..."
+						/>
 
 						<div class="space-y-3 w-full flex flex-col items-center">
 							<button
 								class="h-10 w-1/2 text-white hover:text-gray-900 dark:text-gray-900 dark:hover:text-white rounded-lg px-2 border-2 border-blue-400 bg-blue-400 hover:bg-transparent"
-								type="submit">Add Word</button>
+								type="submit">Add Word</button
+							>
 							<button
 								on:click={() => (collection.isCreatingNewWord = !collection.isCreatingNewWord)}
 								class="h-10 w-1/2 border-blue-400 hover:bg-blue-400 hover:text-white dark:hover:bg-blue-400 dark:hover:text-gray-900 dark:hover:border-blue-400 px-2 rounded-lg border-2 flex justify-center items-center"
-								type="submit">
+								type="submit"
+							>
 								Cancel
 							</button>
 						</div>
@@ -178,7 +190,8 @@
 						{#each collection.words as word, index}
 							<li
 								class="px-2 items-center flex justify-between bg-gray-400/30 h-10 rounded-lg"
-								key={index}>
+								key={index}
+							>
 								{word.text}
 
 								<div class="space-x-2">
@@ -192,7 +205,8 @@
 
 					<button
 						on:click={deleteCollection(collection.id)}
-						class="px-3 flex justify-end w-full text-red-600">Delete Collection</button>
+						class="px-3 flex justify-end w-full text-red-600">Delete Collection</button
+					>
 				{/if}
 			{/each}
 		</ul>
