@@ -1,22 +1,7 @@
 import { db } from '$lib/db';
 
 async function main() {
-	const user = await db.user.createMany({
-		data: [
-			{
-				username: 'man',
-				email: 'cool@gmail.com',
-				password: 'abdo',
-				session: '2000002'
-			},
-			{
-				username: 'abdo3',
-				email: 'abdo10@gmail.com',
-				password: 'abdo2',
-				session: '2000003'
-			}
-		]
-	});
+	const user = await db.user.deleteMany({});
 	console.log(`Created user with id: ${user.id}`);
 }
 

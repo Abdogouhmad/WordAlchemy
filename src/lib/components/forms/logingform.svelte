@@ -62,13 +62,13 @@
 						>Forgot password?</a>
 				</div>
 
-				{#if form && form.user}
+				{#if form?.credentials}
 					<div class="pt-3">
 						<h1 class="bg-red-300 text-red-500 p-2.5 justify-center text-center w-full rounded-lg">
-							Wrong mail/username or password
+							Wrong credentials
 						</h1>
 					</div>
-				{:else if form && form.invalidFormat}
+				{:else if form?.invalidFormat}
 					<div class="pt-3">
 						<h1 class="bg-red-300 text-red-500 p-2.5 justify-center text-center w-full rounded-lg">
 							Invalid format
