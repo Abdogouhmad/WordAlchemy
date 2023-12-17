@@ -21,7 +21,7 @@
 			on:change={() => {
 				document.documentElement.classList.toggle('dark', darkMode);
 			}} />
-		<label id="darkicon" title="Toggle dark mode" for="toggle" data-dark={darkMode ? '🌙' : '🌞'} />
+		<label id="darkicon" title="Toggle dark mode" for="toggle" data-dark={darkMode ? '🌝' : '🌞'} />
 	</div>
 {/if}
 
@@ -40,7 +40,7 @@
 	}
 
 	.toggle input[type='checkbox']:checked ~ label {
-		@apply bg-gray-800 border border-white;
+		@apply bg-gray-950 border border-white;
 	}
 
 	.toggle input[type='checkbox']:checked ~ label::after {

@@ -15,17 +15,17 @@
 
 	export let user;
 
-	let open = false;
+	export let open = false;
 
 	const responsive =
 		'md:w-[700px] m-3 md:mx-auto lg:w-[700px] lg:mx-auto rounded-2xl border border-blue-300';
 </script>
 
-<nav class="{responsive} dark:bg-gray-900 bg-gray-50">
+<nav class="{responsive} dark:bg-gray-950 bg-gray-50">
 	<div class="max-w-screen-xl flex justify-between items-center mx-auto p-3">
 		<a href="/" class="flex items-start justify-start">
 			<img src={Icon} class="h-7 w-7 mr" alt="WordAlchemy Logo" />
-			<span class="text-2xl font-semibold">WordAlchemy</span>
+			<span class="text-2xl mx-2 font-semibold">WordAlchemy</span>
 		</a>
 
 		<div class="hidden md:flex space-x-10 items-center">
@@ -70,13 +70,13 @@
 
 {#if open}
 	<div
-		class="m-3 dark:bg-gray-900 bg-gray-50 md:hidden lg:hidden space-y-3 p-3 border border-blue-300 rounded-lg flex flex-col items-center">
+		class="m-3  dark:bg-gray-950 bg-gray-50 md:hidden lg:hidden space-y-3 p-3 border border-blue-300 rounded-lg flex flex-col items-center">
 		{#if user}
 			<Logoutbutton />
 		{/if}
 
 		{#if !user}
-			<AuthButtons mobile={true} />
+			<AuthButtons mobile={true}  />
 		{/if}
 
 		<Toggletheme />
