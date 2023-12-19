@@ -1,5 +1,7 @@
 import { fail } from '@sveltejs/kit';
 import { db } from '$lib/db.js';
+import { ConfirmEmail } from '$lib/sendemail.js';
+
 import bcrypt from 'bcrypt';
 import crypto from 'crypto';
 
@@ -50,15 +52,18 @@ export const actions = {
 		const cryptedSession = crypto.randomUUID();
 
 		// create the user
+		const verificationToken = crypto.randomBytes(16).toString('hex');
 
 		const newUser = await db.user.create({
 			data: {
 				email,
 				username,
 				password: hashedPassword,
-				session: cryptedSession
+				session: cryptedSession,
+				verificationToken
 			}
 		});
+		await ConfirmEmail(email, verificationToken);
 	}
 };
 

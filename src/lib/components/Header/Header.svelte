@@ -70,13 +70,13 @@
 
 {#if open}
 	<div
-		class="m-3  dark:bg-gray-950 bg-gray-50 md:hidden lg:hidden space-y-3 p-3 border border-blue-300 rounded-lg flex flex-col items-center">
+		class="m-3 dark:bg-gray-950 bg-gray-50 md:hidden lg:hidden space-y-3 p-3 border border-blue-300 rounded-lg flex flex-col items-center">
 		{#if user}
 			<Logoutbutton />
 		{/if}
 
 		{#if !user}
-			<AuthButtons mobile={true}  />
+			<AuthButtons mobile={true} />
 		{/if}
 
 		<Toggletheme />

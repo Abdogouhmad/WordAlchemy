@@ -41,6 +41,11 @@ export const actions = {
 			return fail(400, { credentials: true });
 		}
 
+		// Check if the user is verified
+		if (!user.verified) {
+			return fail(400, { verification: true });
+		}
+
 		// Compare the password with the user's password in the database
 		const userPassword = await bcrypt.compare(password, user.password);
 

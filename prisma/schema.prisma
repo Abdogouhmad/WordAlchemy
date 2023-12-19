@@ -9,11 +9,13 @@ datasource db {
 }
 
 model User {
-  id        String   @id @default(uuid())
-  username  String   @unique
-  email     String   @unique
-  password  String
-  session   String   @unique
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  id                String   @id @default(uuid())
+  username          String   @unique
+  email             String   @unique
+  password          String
+  session           String   @unique
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+  verificationToken String   @unique
+  verified          Boolean  @default(false)
 }

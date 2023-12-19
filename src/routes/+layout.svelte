@@ -12,6 +12,6 @@
 <header>
 	<Navbar user={data.user} />
 </header>
-<div class="md:w-[700px] md:mx-auto lg:w-[700px] lg:mx-auto m-5 ">
+<div class="md:w-[700px] md:mx-auto lg:w-[700px] lg:mx-auto m-5">
 	<slot />
 </div>
