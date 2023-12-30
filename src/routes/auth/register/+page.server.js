@@ -7,7 +7,6 @@ import crypto from 'crypto';
 
 export const actions = {
 	register: async ({ request }) => {
-		// TODO register the user
 		const formData = await request.formData();
 		const email = formData.get('email');
 		const username = formData.get('username');
