@@ -62,7 +62,7 @@ export const actions = {
 				verificationToken
 			}
 		});
-		await ConfirmEmail(email, verificationToken);
+		await ConfirmEmail(email, username, verificationToken);
 	}
 };
 

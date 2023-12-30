@@ -10,12 +10,11 @@ const EmailConfig = {
 	}
 };
 
-export const ConfirmEmail = async (email, token) => {
+export const ConfirmEmail = async (email, username, token) => {
 	const emailaccount = nodemailer.createTransport(EmailConfig);
 	const LinkConfirmation = `https://word-alchemy-git-v4-div-styl.vercel.app/auth/confirm/${token}`;
 
-const mail =
-  `
+const mail =`
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html
   xmlns="http://www.w3.org/1999/xhtml"
@@ -392,7 +391,7 @@ const mail =
                                 >
                                   <p style="line-height: 140%">
                                     <strong>Dear</strong>
-                                    <strong>[Recipient's Name]</strong>,
+                                    <strong>${username}</strong>,
                                   </p>
                                   <p style="line-height: 140%">
                                     <span style="line-height: 19.6px"
@@ -1093,7 +1092,7 @@ export const sendResetPasswordEmail = async (email) => {
 									>
 									  <p style="line-height: 140%">
 										<strong>Dear</strong>
-										<strong>[${email}]</strong>,
+										<strong>${email}</strong>,
 									  </p>
 									  <p style="line-height: 140%">
 										We hope this email finds you well.
