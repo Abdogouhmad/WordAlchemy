@@ -22,7 +22,7 @@ export const actions = {
 
 		if (!user) {
 			return fail(400, {
-				emailNotFound: true
+				credentials: true
 			});
 		}
 

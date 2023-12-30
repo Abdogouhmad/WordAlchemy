@@ -1,6 +1,6 @@
 <script>
 	import { Resetpassword } from '$lib';
-	// export let form;
+	export let form;
 </script>
 
-<Resetpassword  />
+<Resetpassword {form}  />
