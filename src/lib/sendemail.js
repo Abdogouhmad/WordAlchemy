@@ -1410,7 +1410,7 @@ export const sendResetPasswordEmail = async (email) => {
 	const mailOptions = {
 		from: EMAIL,
 		to: email,
-		subject: 'Confirm Email',
+		subject: 'Reset Password',
 		html: mailt
 	};
 
