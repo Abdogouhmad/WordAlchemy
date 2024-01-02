@@ -3,7 +3,7 @@ import { db } from '$lib/db.js';
 
 export const load = async (context) => {
 	const { params } = context;
-	console.log('params:', params); // Log the params object
+
 
 	const verificationToken = params.verificationToken;
 

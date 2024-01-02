@@ -714,9 +714,10 @@ const mail =`
 
 // reset password email
 
-export const sendResetPasswordEmail = async (email) => {
+export const sendResetPasswordEmail = async (email, token) => {
 	const account = nodemailer.createTransport(EmailConfig);
 
+	const updatelink =  `http://localhost:5173/auth/update/${token}`
 	const mailt = `
 	<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 	<html
@@ -1141,9 +1142,9 @@ export const sendResetPasswordEmail = async (email) => {
 									  </style><!
 									[endif]-->
 									<div align="center">
-									  <!--[if mso]><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="http://localhost:5173/auth/update/" style="height:37px; v-text-anchor:middle; width:220px;" arcsize="67.5%"  stroke="f" fillcolor="#524acf"><w:anchorlock/><center style="color:#ffffff;"><![endif]-->
+									  <!--[if mso]><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="${updatelink}" style="height:37px; v-text-anchor:middle; width:220px;" arcsize="67.5%"  stroke="f" fillcolor="#524acf"><w:anchorlock/><center style="color:#ffffff;"><![endif]-->
 									  <a
-										href="http://localhost:5173/auth/update/"
+										href="${updatelink}"
 										target="_blank"
 										class="v-button v-size-width v-button-colors v-font-size"
 										style="
