@@ -34,14 +34,11 @@ export async function handle({ event, resolve }) {
 	// Stage 1
 	event.locals.user = await authenticateUser(event);
 
-	if (event.url.pathname.startsWith('/profile/')) {
+	// Check if the user is authenticated
+	if (event.url.pathname.startsWith('/profile')) {
+		// if not redirect to the home
 		if (!event.locals.user) {
 			throw redirect(303, '/');
-		}
-		if (event.url.pathname.startsWith('/profile/')) {
-			if (event.locals.user.roleId !== 1) {
-				throw redirect(303, '/profile/');
-			}
 		}
 	}
 
