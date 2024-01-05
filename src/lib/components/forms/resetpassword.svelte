@@ -1,6 +1,13 @@
 <script>
+	let title = 'Reset Password';
+	let description = 'form for reseting password';
 	export let form;
 </script>
+
+<svelte:head>
+	<title>{title}</title>
+	<meta name="description" content={description} />
+</svelte:head>
 
 <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
 	<div
@@ -22,15 +29,17 @@
 					required />
 			</div>
 			{#if form?.credentials}
-				<div class="pt-3">
-					<h1 class="bg-red-300 text-red-500 p-2.5 justify-center text-center w-full rounded-lg">
-						Email not found
-					</h1>
+				<div class="bg-red-300 rounded-lg p-3 w-full">
+					<h1 class=" text-red-500 text-center">Email not found in our database</h1>
 				</div>
 			{:else if form?.invalidFormat}
-				<div class="pt-3">
-					<h1 class="bg-red-300 text-red-500 p-2.5 justify-center text-center w-full rounded-lg">
-						Invalid format
+				<div class="bg-red-300 p-2.5 w-full rounded-lg">
+					<h1 class=" text-red-500 text-center">Invalid format</h1>
+				</div>
+			{:else if form?.notVerified}
+				<div class="bg-red-300 p-2.5 w-full rounded-lg">
+					<h1 class=" text-red-500 text-center">
+						Sorry we can't send you email you are not verified
 					</h1>
 				</div>
 			{/if}

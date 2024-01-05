@@ -1,6 +1,7 @@
 /** @type {import('./$types').PageServerLoad} */
 import { fail } from '@sveltejs/kit';
 import { db } from '$lib/db.js';
+import crypto from 'crypto';
 import { sendResetPasswordEmail } from '$lib/sendemail';
 
 export const actions = {
@@ -26,6 +27,19 @@ export const actions = {
 			});
 		}
 
-		await sendResetPasswordEmail(email);
+		if (!user?.verified) {
+			return fail(400, { notVerified: true });
+		}
+
+		const RestPasswordToken = crypto.randomBytes(16).toString('hex');
+
+		await db.user.update({
+			where: { email },
+			data: {
+				RestPasswordToken
+			}
+		});
+
+		await sendResetPasswordEmail(email, RestPasswordToken);
 	}
 };

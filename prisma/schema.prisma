@@ -16,6 +16,7 @@ model User {
   session           String   @unique
   createdAt         DateTime @default(now())
   updatedAt         DateTime @updatedAt
-  verificationToken String   @unique
+  verificationToken String   @unique // for verfication of the User
   verified          Boolean  @default(false)
+  RestPasswordToken String?  @unique // for reseting password
 }

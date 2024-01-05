@@ -1,6 +1,26 @@
 import { fail, redirect } from '@sveltejs/kit';
 import { db } from '$lib/db.js';
-//import { params } from '$app';
+import bcrypt from 'bcrypt';
+
+export const load = async ({ params }) => {
+	const token = params.RestPasswordToken;
+
+	// find the user in the database
+
+	const user = await db.user.findUnique({
+		where: {
+			RestPasswordToken: String(token)
+		}
+	});
+
+	if (!user) {
+		throw redirect(302, '/auth/update/error');
+	}
+
+	return {
+		ValidToken: true
+	};
+};
 
 export const actions = {
 	update: async ({ request, params }) => {
@@ -23,37 +43,25 @@ export const actions = {
 			!password ||
 			!confirmpassword
 		) {
-			console.log('invalide format');
+			console.log('invalid format');
 			return fail(400, {
 				invalideFormat: true
 			});
 		}
 
 		// update the password in the database
-
-		const verificationToken = params.verificationToken;
-		// find the user in the database
-		const user = await db.user.findUnique({
+		const token = params.RestPasswordToken;
+		const UserUpdated = await db.user.update({
 			where: {
-				verificationToken
+				RestPasswordToken: String(token)
+			},
+			data: {
+				password: await bcrypt.hash(password, 10)
 			}
 		});
 
-		// check if the user exists
-		if (user && !user.verified) {
-			// update the password in the database
-			await db.user.update({
-				where: {
-					verificationToken
-				},
-				data: {
-					password
-				}
-			});
-			// redirect to the login page
+		if (UserUpdated) {
 			throw redirect(302, '/auth/login');
-		} else {
-			throw redirect(302, '/');
 		}
 	}
 };
