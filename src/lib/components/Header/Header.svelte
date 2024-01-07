@@ -32,16 +32,28 @@
 			<div class="space-x-4">
 				{#if user}
 					<button
-						class=" dark:bg-blue-500/30
-						border-[1.5px] border-blue-500
-				hover:bg-blue-500/100
-				dark:hover:bg-blue-700
-				text-base
-				font-bold
-				py-2 px-2
-				rounded
-				">
+					class=" dark:bg-blue-500/30
+					border-[1.5px] border-blue-500
+					hover:bg-blue-500/100
+					dark:hover:bg-blue-700
+					text-base
+					font-bold
+					py-2 px-2
+					rounded
+					">
 						<a href="/profile">Profile</a>
+					</button>
+					<button
+					class=" dark:bg-blue-500/30
+					border-[1.5px] border-blue-500
+					hover:bg-blue-500/100
+					dark:hover:bg-blue-700
+					text-base
+					font-bold
+					py-2 px-2
+					rounded
+					">
+						<a href="/profile/words">collection</a>
 					</button>
 					<button
 						on:click={submitLogout}
