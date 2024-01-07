@@ -2,6 +2,13 @@ import { fail, redirect } from '@sveltejs/kit';
 import { db } from '$lib/db.js';
 import bcrypt from 'bcrypt';
 
+/**
+ * Loads data from the database based on the provided parameters.
+ *
+ * @param {object} params - The parameters for the data retrieval.
+ * @return {Promise<object>} - An object containing the response data.
+ * @throws {RedirectError} - If the user is not found in the database.
+ */
 export const load = async ({ params }) => {
 	const token = params.RestPasswordToken;
 
@@ -21,6 +28,15 @@ export const load = async ({ params }) => {
 		ValidToken: true
 	};
 };
+
+
+	/**
+	 * Update function to update the user password.
+	 *
+	 * @param {object} request - the request object
+	 * @param {object} params - the parameters object
+	 * @return {Promise} a promise that resolves to nothing
+	 */
 
 export const actions = {
 	update: async ({ request, params }) => {

@@ -707,8 +707,14 @@ const mail =`
 	try {
 		const info = await emailaccount.sendMail(mailOptions);
 		console.log('Email sent ->', info.response);
+		return {
+			Emailsent: true
+		}
 	} catch (error) {
 		console.error('Error sending email ->', error);
+		return {
+			EmailNotSent: true
+		}
 	}
 };
 

@@ -1,10 +1,15 @@
 import { fail } from '@sveltejs/kit';
 import { db } from '$lib/db.js';
 import { ConfirmEmail } from '$lib/sendemail.js';
-
 import bcrypt from 'bcrypt';
 import crypto from 'crypto';
 
+/**
+ * Registers a new user.
+ *
+ * @param {object} request - The request object.
+ * @returns {object} - The response object.
+ */
 export const actions = {
 	register: async ({ request }) => {
 		const formData = await request.formData();
@@ -17,7 +22,7 @@ export const actions = {
 		if (password !== confirmpassword) {
 			console.log('password do not match');
 			return fail(400, {
-				message: 'password do not match'
+				PassNotMatch: 'password do not match'
 			});
 		} else if (
 			typeof email !== 'string' ||
@@ -26,7 +31,6 @@ export const actions = {
 			!email ||
 			!password
 		) {
-			console.log('invalide format');
 			return fail(400, {
 				invalideFormat: true
 			});
@@ -53,7 +57,7 @@ export const actions = {
 		// create the user
 		const verificationToken = crypto.randomBytes(16).toString('hex');
 
-		const newUser = await db.user.create({
+		await db.user.create({
 			data: {
 				email,
 				username,
@@ -62,8 +66,19 @@ export const actions = {
 				verificationToken
 			}
 		});
-		await ConfirmEmail(email, username, verificationToken);
+
+		// send email
+		const sendemail = await ConfirmEmail(email, username, verificationToken);
+
+		// check email if it is sent
+		if (sendemail) {
+			return {
+				emailSent: true
+			};
+		} else {
+			return fail(400, {
+				emailNotSent: true
+			});
+		}
 	}
 };
-
-// TODO: Add validation for the form if the user exists or not
