@@ -18,7 +18,7 @@
 	export let open = false;
 
 	const responsive =
-		'md:w-[700px] m-3 md:mx-auto lg:w-[700px] lg:mx-auto rounded-2xl border border-blue-300';
+		'md:w-[700px] m-3 md:mx-auto lg:w-[700px] lg:mx-auto rounded-2xl border border-blue-600/50';
 </script>
 
 <nav class="{responsive} dark:bg-gray-950 bg-gray-50">
