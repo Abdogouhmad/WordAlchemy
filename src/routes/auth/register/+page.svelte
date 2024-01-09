@@ -5,6 +5,6 @@
 	export let form;
 </script>
 
-<main class="p-20">
+<main class="pt-10">
 	<Registerform {form} />
 </main>
