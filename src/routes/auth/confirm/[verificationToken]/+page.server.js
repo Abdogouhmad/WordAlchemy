@@ -20,7 +20,7 @@ export const load = async (context) => {
 	});
 
 	if (user && !user.verified) {
-		 // Update user's verification status to true
+		// Update user's verification status to true
 		await db.user.update({
 			where: {
 				verificationToken

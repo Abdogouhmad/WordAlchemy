@@ -52,11 +52,11 @@
 						</h1>
 					</div>
 				{:else if form?.invalidFormat}
-				<div class="pt-3">
-					<h1 class="bg-red-300 text-red-500 p-2.5 justify-center text-center w-full rounded-lg">
-						Invalid format
-					</h1>
-				</div>
+					<div class="pt-3">
+						<h1 class="bg-red-300 text-red-500 p-2.5 justify-center text-center w-full rounded-lg">
+							Invalid format
+						</h1>
+					</div>
 				{/if}
 				<button
 					type="submit"

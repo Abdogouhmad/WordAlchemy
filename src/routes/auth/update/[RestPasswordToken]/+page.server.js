@@ -29,7 +29,6 @@ export const load = async ({ params }) => {
 	};
 };
 
-
 /**
  * Update function to update the user password.
  *

@@ -4,6 +4,7 @@
 
 	export let form;
 </script>
+
 <main class="p-20">
 	<Registerform {form} />
 </main>

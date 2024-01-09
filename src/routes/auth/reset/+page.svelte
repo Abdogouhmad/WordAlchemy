@@ -3,4 +3,4 @@
 	export let form;
 </script>
 
-<Resetpassword {form}  />
+<Resetpassword {form} />

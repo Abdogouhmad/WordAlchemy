@@ -4,10 +4,9 @@ import { db } from '$lib/db.js';
 import { sendResetPasswordEmail } from '$lib/sendemail';
 import crypto from 'crypto';
 
-
 /**
  * Resets the user's password.
- * 
+ *
  * @param {Object} options - The options object.
  * @param {Object} options.request - The request object.
  * @returns {Promise<Object>} - A promise that resolves with the result of the reset operation.

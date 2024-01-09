@@ -14,7 +14,7 @@ export const ConfirmEmail = async (email, username, token) => {
 	const emailaccount = nodemailer.createTransport(EmailConfig);
 	const LinkConfirmation = `https://word-alchemy-git-v4-div-styl.vercel.app/auth/confirm/${token}`;
 
-const mail =`
+	const mail = `
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html
   xmlns="http://www.w3.org/1999/xhtml"
@@ -709,12 +709,12 @@ const mail =`
 		console.log('Email sent ->', info.response);
 		return {
 			Emailsent: true
-		}
+		};
 	} catch (error) {
 		console.error('Error sending email ->', error);
 		return {
 			EmailNotSent: true
-		}
+		};
 	}
 };
 
@@ -723,7 +723,7 @@ const mail =`
 export const sendResetPasswordEmail = async (email, token) => {
 	const account = nodemailer.createTransport(EmailConfig);
 
-	const updatelink =  `http://localhost:5173/auth/update/${token}`
+	const updatelink = `http://localhost:5173/auth/update/${token}`;
 	const mailt = `
 	<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 	<html
