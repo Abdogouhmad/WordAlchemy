@@ -33,11 +33,11 @@ export const actions = {
 			});
 		}
 		// check if the username has odd characters
-		// if (!username.match(/[^a-z0-9]+$/gmi)) {
-		// 	return fail(400, {
-		// 		invalidUsername: 'Username has invalid characters. Please use only small letters and numbers.'
-		// 	});
-		// }
+		if (!username.match(/^[a-z0-9]+$/gmi)) {
+			return fail(400, {
+				invalidUsername: 'Username has invalid characters. Please use only small letters and numbers.'
+			});
+		}
 
 		// check if the password is valid format
 		if (

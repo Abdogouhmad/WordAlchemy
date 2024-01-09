@@ -7,7 +7,7 @@ import { error } from '@sveltejs/kit';
  * @param {Object} options - The options object.
  * @param {Function} options.fetch - The fetch function used to make the API request.
  * @param {Object} options.params - The parameters object.
- * @param {string} options.params.word - The word to be used in the API request.
+ * @param {string} options.params - The word to be used in the API request.
  * @returns {Object} An object containing the word, phonetics, and meanings.
  * @throws {Error} If the API request fails or returns a status code of 404.
  */

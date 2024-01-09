@@ -7,7 +7,7 @@ import bcrypt from 'bcrypt';
  *
  * @param {object} params - The parameters for the data retrieval.
  * @return {Promise<object>} - An object containing the response data.
- * @throws {RedirectError} - If the user is not found in the database.
+ * @throws {Redirect} - If the user is not found in the database.
  */
 export const load = async ({ params }) => {
 	const token = params.RestPasswordToken;
@@ -30,13 +30,13 @@ export const load = async ({ params }) => {
 };
 
 
-	/**
-	 * Update function to update the user password.
-	 *
-	 * @param {object} request - the request object
-	 * @param {object} params - the parameters object
-	 * @return {Promise} a promise that resolves to nothing
-	 */
+/**
+ * Update function to update the user password.
+ *
+ * @param {object} request - the request object
+ * @param {object} params - the parameters object
+ * @return {Promise} a promise that resolves to nothing
+ */
 
 export const actions = {
 	update: async ({ request, params }) => {
