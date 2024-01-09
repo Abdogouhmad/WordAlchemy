@@ -1,8 +1,9 @@
 import { db } from '$lib/db';
 
 async function main() {
-	const user = await db.user.deleteMany({});
-	console.log(`Created user with id: ${user.id}`);
+	await db.user.deleteMany({});
+	// console.log(`Created user with id: ${user.id}`);
+	console.log('Database seeded!');
 }
 
 main()

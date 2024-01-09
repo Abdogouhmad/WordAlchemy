@@ -2,7 +2,7 @@
 	import { DEngine } from '$lib';
 	import { onMount } from 'svelte';
 	import { Catlookup } from '$lib';
-	import { Footer } from '$lib';
+
 	let pageTitle = 'WordAlchemy';
 	let pageDescription = 'Welcome to WordAlchemy';
 

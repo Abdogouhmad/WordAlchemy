@@ -6,11 +6,12 @@
 	import { browser } from '$app/environment';
 
 	async function submitLogout() {
-		const res = await fetch('/auth/logout', { method: 'PUT' });
+		await fetch('/auth/logout', { method: 'PUT' });
 		if (browser) {
 			window.location.href = '/auth/login';
 		}
 	}
+
 	import Hamburger from 'svelte-hamburger';
 
 	export let user;
@@ -32,7 +33,7 @@
 			<div class="space-x-4">
 				{#if user}
 					<button
-					class=" dark:bg-blue-500/30
+						class=" dark:bg-blue-500/30
 					border-[1.5px] border-blue-500
 					hover:bg-blue-500/100
 					dark:hover:bg-blue-700
@@ -44,7 +45,7 @@
 						<a href="/profile">Profile</a>
 					</button>
 					<button
-					class=" dark:bg-blue-500/30
+						class=" dark:bg-blue-500/30
 					border-[1.5px] border-blue-500
 					hover:bg-blue-500/100
 					dark:hover:bg-blue-700

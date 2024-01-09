@@ -1,6 +1,5 @@
 <script>
 	import { Meaning } from '$lib';
-	import { Footer } from '$lib';
 
 	export let data;
 	$: phonetic = data?.phonetics;

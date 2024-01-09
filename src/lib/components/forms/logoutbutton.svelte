@@ -2,7 +2,7 @@
 	import { browser } from '$app/environment';
 
 	async function submitLogout() {
-		const res = await fetch('/auth/logout', { method: 'PUT' });
+		await fetch('/auth/logout', { method: 'PUT' });
 		if (browser) {
 			window.location.href = '/auth/login';
 		}

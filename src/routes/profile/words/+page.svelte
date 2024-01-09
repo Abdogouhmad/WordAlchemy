@@ -20,3 +20,4 @@
 		</div>
 	</div>
 </section>
+<!--TODO: build the collection and drop list -->

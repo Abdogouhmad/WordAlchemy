@@ -13,6 +13,7 @@ import crypto from 'crypto';
 export const actions = {
 	register: async ({ request }) => {
 		const formData = await request.formData();
+		const fullname = formData.get('fullname');
 		const email = formData.get('email');
 		const username = formData.get('username');
 		const password = formData.get('password');
@@ -24,10 +25,30 @@ export const actions = {
 			return fail(400, {
 				PassNotMatch: 'password do not match'
 			});
-		} else if (
+		}
+		// check if the password is too short
+		if (password.length < 8) {
+			return fail(400, {
+				passwordTooShort: 'password must be at least 8 characters'
+			});
+		}
+		// check if the username has odd characters
+		// if (!username.match(/[^a-z0-9]+$/gmi)) {
+		// 	return fail(400, {
+		// 		invalidUsername: 'Username has invalid characters. Please use only small letters and numbers.'
+		// 	});
+		// }
+
+		// check if the password is valid format
+		if (
+			typeof fullname !== 'string' ||
 			typeof email !== 'string' ||
 			typeof username !== 'string' ||
 			typeof password !== 'string' ||
+			typeof confirmpassword !== 'string' ||
+			!fullname ||
+			!username ||
+			!confirmpassword ||
 			!email ||
 			!password
 		) {
@@ -59,6 +80,7 @@ export const actions = {
 
 		await db.user.create({
 			data: {
+				fullname,
 				email,
 				username,
 				password: hashedPassword,
