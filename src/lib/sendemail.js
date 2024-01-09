@@ -1428,3 +1428,4 @@ export const sendResetPasswordEmail = async (email, token) => {
 		console.error('Error sending email ------->', error);
 	}
 };
+// EOF
