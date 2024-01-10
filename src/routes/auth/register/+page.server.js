@@ -78,7 +78,8 @@ export const actions = {
 
 		// create the user
 		const verificationToken = crypto.randomBytes(16).toString('hex');
-
+		// createdAt
+		// const createdAt = new Date().toDateString();
 		await db.user.create({
 			data: {
 				fullname,

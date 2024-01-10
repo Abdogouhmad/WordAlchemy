@@ -16,7 +16,7 @@ model User {
   bio               String?
   password          String
   session           String   @unique
-  createdAt         DateTime @db.Date // store the date at format DD-MM-YY
+  createdAt         DateTime @default(now()) @db.Date // store the date at format DD-MM-YY
   updatedAt         DateTime @updatedAt
   verificationToken String   @unique // for verfication of the User
   verified          Boolean  @default(false)
