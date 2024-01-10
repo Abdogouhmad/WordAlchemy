@@ -1,6 +1,6 @@
 {
   "name": "wordalchemy",
-  "version": "4.10.3",
+  "version": "4.10.4",
   "private": true,
   "scripts": {
     "dev": "vite dev",
