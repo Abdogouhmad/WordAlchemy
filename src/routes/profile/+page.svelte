@@ -9,7 +9,7 @@
 		<h1 class="text-left text-base md:text-2xl font-extrabold mt-3">{data.user.fullname}</h1>
 		<h2 class="text-left text-gray-400 text-base md:text-2xl font-light">{data.user.username}</h2>
 		<h2 class="text-left text-sm md:text-base font-light text-gray-600">
-			Member since {data.user.createdAt}
+			Member since {data.user.createdAt.toISOString().split('T')[0]}
 		</h2>
 		<h2 class="text-left text-sm font-light text-gray-600">{data.user.email}</h2>
 		<hr class="border-0 bg-blue-600/50 my-3 h-px dark:bg-white/25 w-full" />
