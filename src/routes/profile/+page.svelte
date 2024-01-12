@@ -1,12 +1,13 @@
 <script>
-	import { Userprofile } from '$lib';
+	import { CollectionWords, Userprofile } from '$lib';
 
 	export let data;
 
 </script>
 
-<section>
+<article class="space-y-5 md:flex md:flex-row ">
 	<!-- ! for the visual profile	-->
 	<Userprofile {data} />
 	<!--	for collection and drop list	-->
-</section>
+	<CollectionWords />
+</article>

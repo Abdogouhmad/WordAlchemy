@@ -4,6 +4,7 @@
 	import AuthButtons from './authbutton.svelte';
 	import { Logoutbutton } from '$lib';
 	import { browser } from '$app/environment';
+	import Hamburger from 'svelte-hamburger';
 
 	async function submitLogout() {
 		await fetch('/auth/logout', { method: 'PUT' });
@@ -11,8 +12,6 @@
 			window.location.href = '/auth/login';
 		}
 	}
-
-	import Hamburger from 'svelte-hamburger';
 
 	export let user;
 
@@ -45,18 +44,6 @@
 						<a href="/profile">Profile</a>
 					</button>
 					<button
-						class=" dark:bg-blue-500/30
-					border-[1.5px] border-blue-500
-					hover:bg-blue-500/100
-					dark:hover:bg-blue-700
-					text-base
-					font-bold
-					py-2 px-2
-					rounded
-					">
-						<a href="/profile/words">collection</a>
-					</button>
-					<button
 						on:click={submitLogout}
 						class="dark:bg-blue-500/30 dark:hover:bg-red-600/90
 					border-[1.5px] border-red-500 hover:border-none
@@ -83,7 +70,7 @@
 
 {#if open}
 	<div
-		class="m-3 dark:bg-gray-950 bg-gray-50 md:hidden lg:hidden space-y-3 p-3 border border-blue-300 rounded-lg flex flex-col items-center">
+		class="m-3 dark:bg-gray-950 bg-gray-50 md:hidden lg:hidden space-y-3 p-3 border border-blue-600/50 rounded-lg flex flex-col items-center">
 		{#if user}
 			<Logoutbutton />
 		{/if}

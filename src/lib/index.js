@@ -9,3 +9,4 @@ export { default as Logoutbutton } from './components/forms/logoutbutton.svelte'
 export { default as Resetpassword } from './components/forms/resetpassword.svelte';
 export { default as UpdateUser } from './components/forms/updateuser.svelte';
 export { default as Userprofile } from './components/profile components/profileinfo.svelte';
+export { default as CollectionWords } from './components/profile components/collection.svelte';

@@ -2,9 +2,9 @@
 	export let data;
 </script>
 
-<div
-	class="max-w-lg mx-auto dark:border-blue-600/30 border-blue-600/50 border rounded-lg shadow-md p-5">
-	<h1 class="text-left text-base md:text-2xl font-extrabold mt-3">{data.user.fullname}</h1>
+<section
+	class=" dark:border-blue-600/30 border-blue-600/50 border rounded-lg shadow-md p-5 ">
+	<h1 class="text-left text-2xl font-extrabold mt-3">{data.user.fullname}</h1>
 	<h2 class="text-left text-gray-400 text-base md:text-2xl font-light">{data.user.username}</h2>
 	<h2 class="text-left text-sm md:text-base  font-light text-gray-600">
 		Member since: {data.user.createdAt.toDateString()}
@@ -23,4 +23,4 @@
 			class="w-full p-5 bg-white border border-blue-600/30 dark:bg-gray-950 rounded-lg"
 			placeholder="Enter your bio" />
 	</form>
-</div>
+</section>
