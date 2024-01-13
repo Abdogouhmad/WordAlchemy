@@ -1,6 +1,6 @@
 {
   "name": "wordalchemy",
-  "version": "4.10.14",
+  "version": "4.10.15",
   "private": true,
   "scripts": {
     "dev": "vite dev",
@@ -16,6 +16,7 @@
     "studio": "npx prisma studio"
   },
   "devDependencies": {
+    "@iconify/svelte": "^3.1.6",
     "@sveltejs/adapter-auto": "^2.1.1",
     "@sveltejs/kit": "^1.27.6",
     "@testing-library/svelte": "^4.0.5",

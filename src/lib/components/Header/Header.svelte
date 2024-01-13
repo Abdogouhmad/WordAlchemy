@@ -32,6 +32,7 @@
 			<div class="space-x-4">
 				{#if user}
 					<button
+						on:click={() => {window.location.href = '/profile'}}
 						class=" dark:bg-blue-500/30
 					border-[1.5px] border-blue-500
 					hover:bg-blue-500/100
@@ -41,7 +42,7 @@
 					py-2 px-2
 					rounded
 					">
-						<a href="/profile">Profile</a>
+						Profile
 					</button>
 					<button
 						on:click={submitLogout}
