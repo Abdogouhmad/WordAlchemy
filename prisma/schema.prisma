@@ -9,16 +9,39 @@ datasource db {
 }
 
 model User {
-  id                String   @id @default(uuid())
+  id                String     @id @default(uuid())
   fullname          String
-  username          String   @unique
-  email             String   @unique
+  username          String     @unique
+  email             String     @unique
   bio               String?
   password          String
-  session           String   @unique
-  createdAt         DateTime @default(now()) @db.Date // store the date at format DD-MM-YY
-  updatedAt         DateTime @updatedAt
-  verificationToken String   @unique // for verfication of the User
-  verified          Boolean  @default(false)
-  RestPasswordToken String?  @unique // for reseting password
+  session           String     @unique
+  createdAt         DateTime   @default(now()) @db.Date // store the date at format DD-MM-YY
+  updatedAt         DateTime   @updatedAt
+  verificationToken String     @unique // for verfication of the User
+  verified          Boolean    @default(false)
+  RestPasswordToken String?    @unique // for reseting password
+  category          Category[]
+}
+
+// category that word will be classified at e.g Education----> many words.
+
+model Category {
+  id           Int      @id @default(autoincrement())
+  User         User?    @relation(fields: [userId], references: [id])
+  userId       String?
+  namecategory String?
+  createdAt    DateTime @default(now()) @db.Date
+  updatedAt    DateTime @updatedAt
+  word         Word[]
+}
+
+// word dictionary
+model Word {
+  id           Int       @id @default(autoincrement())
+  Category     Category? @relation(fields: [categoryId], references: [id])
+  categoryId   Int?
+  wordtodefine String?
+  createdAt    DateTime  @default(now()) @db.Date
+  updatedAt    DateTime  @updatedAt
 }
