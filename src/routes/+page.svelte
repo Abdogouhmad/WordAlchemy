@@ -1,6 +1,8 @@
 <script>
+	import { DEngine } from '$lib';
 	import { onMount } from 'svelte';
-	import { Catlookup, DEngine } from '$lib';
+	import { Catlookup } from '$lib';
+
 	let pageTitle = 'WordAlchemy';
 	let pageDescription = 'Welcome to WordAlchemy';
 
@@ -29,16 +31,8 @@
 	<meta name="description" content={pageDescription} />
 </svelte:head>
 
-<section class=" flex flex-col justify-center items-center">
-	<div class="w-full flex h-40 items-end pt-10">
-		<DEngine />
-	</div>
-
-	<div class="mb-4">
-		<div bind:this={lottieElement} class="md:h-[30vh] h-[200px] lg:h-[67vh]" />
-		<h1 class="md:text-5xl text-2xl pt-5 font-mono">Welcome to WordAlchemy</h1>
-	</div>
-	<!-- <p class="md:text-3xl text-base font-light p-3 pt-3 text-center">
-		WordAlchemy: Your ad-free dictionary web app. Explore words without interruptions, all for free
-	</p> -->
+<section class="flex flex-col items-center">
+	<div bind:this={lottieElement} class="md:h-[40vh] h-[300px] lg:h-[67vh]" />
+	<!-- the search componante -->
+	<DEngine />
 </section>

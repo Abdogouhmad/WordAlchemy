@@ -1,5 +1,7 @@
+// src/hooks.server.js
+
 import { redirect } from '@sveltejs/kit';
-import { prisma } from './lib/server/prisma';
+import { db } from '$lib/db';
 
 async function authenticateUser(event) {
 	const { cookies } = event;
@@ -10,7 +12,7 @@ async function authenticateUser(event) {
 		return null;
 	}
 
-	const user = await prisma.user.findUnique({
+	const user = await db.user.findUnique({
 		where: { session }
 	});
 
@@ -21,24 +23,31 @@ async function authenticateUser(event) {
 	return null;
 }
 
+/**
+ * Handles the given event and returns the response.
+ *
+ * @param {Object} event - The event object.
+ * @param {Function} resolve - The resolve function.
+ * @return {Promise} A promise that resolves to the response.
+ */
 export async function handle({ event, resolve }) {
 	// Stage 1
 	event.locals.user = await authenticateUser(event);
 
-	if (event.url.pathname.startsWith('/dashboard')) {
+	// Check if the user is authenticated
+	if (event.url.pathname.startsWith('/profile')) {
+		// if not redirect to the home
 		if (!event.locals.user) {
 			throw redirect(303, '/');
 		}
-		if (event.url.pathname.startsWith('/dashboard/admins')) {
-			if (event.locals.user.roleId !== 1) {
-				throw redirect(303, '/dashboard');
-			}
-		}
 	}
 
-	if (event.url.pathname.startsWith('/login') || event.url.pathname.startsWith('/register')) {
+	if (
+		event.url.pathname.startsWith('/auth/login') ||
+		event.url.pathname.startsWith('/auth/register')
+	) {
 		if (event.locals.user) {
-			throw redirect(303, '/dashboard');
+			throw redirect(303, '/profile/');
 		}
 	}
 

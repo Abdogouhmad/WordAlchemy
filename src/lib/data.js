@@ -35,5 +35,4 @@ let dictionaries = [
 		wordlink: `https://dictionary.cambridge.org/dictionary/english/`
 	}
 ];
-
 export { dictionaries };

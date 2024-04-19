@@ -9,7 +9,7 @@
 </script>
 
 <button on:click={onClick} aria-expanded={open} aria-label={ariaLabel}>
-	<svg class:open viewBox="0 0 100 100" fill="none" stroke="blue" stroke-width="4" {width}>
+	<svg class:open viewBox="0 0 100 100" fill="none" stroke="#2563EB" stroke-width="4" {width}>
 		<path
 			class="top"
 			d="m 30,33 h 40 c 3.722839,0 7.5,3.126468 7.5,8.578427 0,5.451959 -2.727029,8.421573 -7.5,8.421573 h -20" />

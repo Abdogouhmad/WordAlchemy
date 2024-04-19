@@ -1,5 +1,5 @@
 <script>
-	const pageTitle = '404 Not found';
+	let pageTitle = 'Error updating password';
 	const pageDescription = 'Page not found on WordAlchemy';
 </script>
 
@@ -7,7 +7,6 @@
 	<title>{pageTitle}</title>
 	<meta name="description" content={pageDescription} />
 </svelte:head>
-
 <main
 	class="flex flex-col items-center justify-center min-h-screen dark:text-gray-100 px-4 py-8 md:px-6 lg:px-8">
 	<div class="max-w-md mx-auto">
